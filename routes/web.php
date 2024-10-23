@@ -17,6 +17,7 @@ use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EntradasController;
 use App\Http\Controllers\DetallesPedidosController;
 use App\Http\Controllers\AsignaExtrasPedidosController;
+use App\Http\Controllers\ProductosNoPerecederosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,4 +44,5 @@ Route::apiResource('/home/entradas', EntradasController::class);
 Route::apiResource('/home/productos_perecederos', ProductosPerecederosController::class);
 Route::apiResource('/home/detalles_pedidos', DetallesPedidosController::class);
 Route::apiResource('/home/asigna_extras_pedidos', AsignaExtrasPedidosController::class);
+Route::apiResource('/home/productos_no_perecederos', ProductosNoPerecederosController::class);
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
