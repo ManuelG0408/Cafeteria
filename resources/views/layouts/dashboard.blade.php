@@ -59,7 +59,7 @@
                 <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
                     <a class="dropdown-item" href="/home/clientes">Clientes</a>
                     <a class="dropdown-item" href="/home/empleados">Empleados</a>
-                    <a class="dropdown-item" href="/home/proveedores">Proveedores</a>
+                    <a class="dropdown-item" href="/home/proovedores">Proveedores</a>
                 </div>
             </li>
 

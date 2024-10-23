@@ -15,6 +15,7 @@ use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\ProductosPerecederosController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EntradasController;
+use App\Http\Controllers\DetallesPedidosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,4 +40,5 @@ Route::apiResource('/home/pedidos', PedidosController::class);
 Route::apiResource('/home/productos', ProductosController::class);
 Route::apiResource('/home/entradas', EntradasController::class);
 Route::apiResource('/home/productos_perecederos', ProductosPerecederosController::class);
+Route::apiResource('/home/detalles_pedidos', DetallesPedidosController::class);
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
