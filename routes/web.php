@@ -11,8 +11,10 @@ use App\Http\Controllers\EstadosPedidosController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProovedoresController;
+use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\ProductosPerecederosController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\EntradasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +35,8 @@ Route::apiResource('/home/estados_pedidos', EstadosPedidosController::class);
 Route::apiResource('/home/categorias', CategoriasController::class);
 Route::apiResource('/home/proovedores', ProovedoresController::class);
 Route::apiResource('/home/empleados', EmpleadosController::class);
+Route::apiResource('/home/pedidos', PedidosController::class);
 Route::apiResource('/home/productos', ProductosController::class);
+Route::apiResource('/home/entradas', EntradasController::class);
 Route::apiResource('/home/productos_perecederos', ProductosPerecederosController::class);
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
