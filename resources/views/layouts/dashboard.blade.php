@@ -52,23 +52,25 @@
 
             <!-- Usuarios con Dropdown -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/usuarios" id="usuariosDropdown" role="button">
+                <a class="nav-link dropdown-toggle" href="/home/usuarios" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
                     <span>Usuarios</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                    <a class="dropdown-item" href="/dashboard/clientes">Clientes</a>
+                    <a class="dropdown-item" href="/home/clientes">Clientes</a>
                     <a class="dropdown-item" href="/home/empleados">Empleados</a>
                     <a class="dropdown-item" href="/home/proveedores">Proveedores</a>
                 </div>
             </li>
 
+            @role('admin')
             <li class="nav-item">
                 <a class="nav-link" href="/home/puestos">
                     <i class='bx bxs-pin'></i>
                     <span>Puestos</span>
                 </a>
             </li>
+            @endrole
 
             <li class="nav-item">
                 <a class="nav-link" href="/home/productos">
@@ -85,7 +87,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="/home">
                     <i class="bx bx-log-out"></i>
                     <span>Home</span>
                 </a>
