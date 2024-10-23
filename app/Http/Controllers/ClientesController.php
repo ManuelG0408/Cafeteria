@@ -14,10 +14,6 @@ class ClientesController extends Controller
         return view('admin.clientes.index', [ // Asegúrate de usar la notación de puntos
             'clientes' => $clientes // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
 
-        $clientes = Clientes::all();
-        return view('admin.clientes.index',[
-            'clientes' => $clientes
-
         ]);
     }
 }

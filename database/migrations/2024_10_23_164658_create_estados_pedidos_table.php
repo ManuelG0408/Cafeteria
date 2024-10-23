@@ -8,9 +8,9 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('disponibilidades', function (Blueprint $table) {
-            $table->id('id_disponibilidad');
-            $table->string('desc_disponibilidad');
+        Schema::create('estados_pedidos', function (Blueprint $table) {
+            $table->id('id_estado_pedido');
+            $table->string('desc_estado_pedido');
            
             $table->timestamps();
 
@@ -21,6 +21,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('disponibilidades');
+        Schema::dropIfExists('estados_pedidos');
     }
 };
