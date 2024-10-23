@@ -9,7 +9,10 @@ use App\Http\Controllers\TiposClientesController;
 use App\Http\Controllers\DisponibilidadesController;
 use App\Http\Controllers\EstadosPedidosController;
 use App\Http\Controllers\CategoriasController;
+
 use App\Http\Controllers\ProovedoresController;
+
+use App\Http\Controllers\EmpleadosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,4 +32,6 @@ Route::apiResource('/home/disponibilidades', DisponibilidadesController::class);
 Route::apiResource('/home/estados_pedidos', EstadosPedidosController::class);
 Route::apiResource('/home/categorias', CategoriasController::class);
 Route::apiResource('/home/proovedores', ProovedoresController::class);
+Route::apiResource('/home/empleados', EmpleadosController::class);
+
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
