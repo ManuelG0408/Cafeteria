@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+perras
 
-putas
 
 @endsection
