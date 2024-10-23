@@ -11,16 +11,16 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id('id_pedido'); // ID del cliente
             $table->date('fecha_pedido');
-            $table->unsignedBigInteger('id_pedido'); // ID del usuario asociado
-            $table->unsignedBigInteger('id_producto'); // ID del tipo de cliente
-            $table->integer('cantidad');
-            $table->decimal('subtotal',8,2);
+            $table->unsignedBigInteger('id_cliente'); // ID del usuario asociado
+            $table->unsignedBigInteger('id_estado_pedido'); // ID del tipo de cliente
+            $table->decimal('total');
+            $table->string('comentarios');
 
             $table->timestamps(); // Campos para created_at y updated_at
 
             // Claves foráneas
-            $table->foreign('id_pedido')->references('id_pedido')->on('pedidos')->onDelete('cascade');
-            $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
+            $table->foreign('id_estado_pedido')->references('id_estado_pedido')->on('estados_pedidos')->onDelete('cascade');
         });
     }
 

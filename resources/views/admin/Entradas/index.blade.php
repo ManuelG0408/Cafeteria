@@ -2,6 +2,5 @@
 
 @section('content')
 
-putas
-
+Entradas
 @endsection
