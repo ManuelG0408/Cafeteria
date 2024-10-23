@@ -33,5 +33,6 @@ Route::apiResource('/home/estados_pedidos', EstadosPedidosController::class);
 Route::apiResource('/home/categorias', CategoriasController::class);
 Route::apiResource('/home/proovedores', ProovedoresController::class);
 Route::apiResource('/home/empleados', EmpleadosController::class);
+Route::apiResource('/home/pedidos', PedidosController::class);
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
