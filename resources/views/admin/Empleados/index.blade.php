@@ -2,6 +2,6 @@
 
 @section('content')
 
-putas
+putas jajaja
 
 @endsection
