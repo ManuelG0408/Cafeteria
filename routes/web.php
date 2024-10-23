@@ -11,7 +11,11 @@ use App\Http\Controllers\EstadosPedidosController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProovedoresController;
+<<<<<<< HEAD
 use App\Http\Controllers\PedidosController;
+=======
+use App\Http\Controllers\ProductosPerecederosController;
+>>>>>>> 08fbd233c925a3e5e98962aa3f827497d8b4f591
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EntradasController;
 
@@ -36,6 +40,10 @@ Route::apiResource('/home/proovedores', ProovedoresController::class);
 Route::apiResource('/home/empleados', EmpleadosController::class);
 Route::apiResource('/home/pedidos', PedidosController::class);
 Route::apiResource('/home/productos', ProductosController::class);
+<<<<<<< HEAD
 Route::apiResource('/home/entradas', EntradasController::class);
 
+=======
+Route::apiResource('/home/productos_perecederos', ProductosPerecederosController::class);
+>>>>>>> 08fbd233c925a3e5e98962aa3f827497d8b4f591
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
