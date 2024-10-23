@@ -2,6 +2,6 @@
 
 @section('content')
 
-Extras
+Extras Extras
 
 @endsection
