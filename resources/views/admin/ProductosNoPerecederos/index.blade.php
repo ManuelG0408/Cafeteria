@@ -2,5 +2,6 @@
 
 @section('content')
 
-Clientes
+Productos No Perecederos
+
 @endsection

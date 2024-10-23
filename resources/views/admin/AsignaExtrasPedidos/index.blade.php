@@ -2,5 +2,6 @@
 
 @section('content')
 
-Clientes
+Asigna Extras Pedidos
+
 @endsection

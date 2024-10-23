@@ -2,5 +2,5 @@
 
 @section('content')
 
-Clientes
+Detalles de Pedidos
 @endsection
