@@ -2,6 +2,6 @@
 
 @section('content')
 
-Productos No Perecederos
+Productos No Perecederossssssssssss
 
 @endsection
