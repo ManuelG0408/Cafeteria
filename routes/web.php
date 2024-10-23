@@ -9,6 +9,7 @@ use App\Http\Controllers\TiposClientesController;
 use App\Http\Controllers\DisponibilidadesController;
 use App\Http\Controllers\EstadosPedidosController;
 use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\ProovedoresController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,4 +28,5 @@ Route::apiResource('/home/extras', ExtrasController::class);
 Route::apiResource('/home/disponibilidades', DisponibilidadesController::class);
 Route::apiResource('/home/estados_pedidos', EstadosPedidosController::class);
 Route::apiResource('/home/categorias', CategoriasController::class);
+Route::apiResource('/home/proovedores', ProovedoresController::class);
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
