@@ -51,6 +51,7 @@
             <div class="sidebar-heading">Tablas</div>
 
             <!-- Usuarios con Dropdown -->
+            @role('admin')
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/home/usuarios" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
@@ -69,6 +70,7 @@
                     <span>Puestos</span>
                 </a>
             </li>
+            @endrole
 
             <li class="nav-item">
                 <a class="nav-link" href="/home/productos">

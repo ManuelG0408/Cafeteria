@@ -2,6 +2,6 @@
 
 @section('content')
 
-Puestos
+Extras
 
 @endsection
