@@ -36,7 +36,7 @@
             <select class="form-control" name="id_categoria" id="id_categoria" required>
                 <option value="">Seleccione un usuario</option>
                 @foreach($categorias as $cate)
-                    <option value="{{ $cate->id_categoria}}">{{ $cate->desc_categoria }}</option>
+                    <option value="{{ $cate->id_categoria}}">{{ $cate->nom_categoria }}</option>
                 @endforeach
             </select>
             @error('id_categoria')
