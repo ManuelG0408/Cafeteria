@@ -71,7 +71,7 @@ class ProductosController extends Controller
         $data = $request->all();
         
         if ($request->hasFile('imagen')) {
-            $path = $request->file('imagen')->store('public/imagenes');
+            $path = $request->file('imagen')->store('public/images');
             $data['imagen'] = basename($path);
         }
 
