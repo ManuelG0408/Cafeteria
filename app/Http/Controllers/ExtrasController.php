@@ -14,4 +14,24 @@ class ExtrasController extends Controller
             'extras' => $extras
         ]);
     }
+    public function create()
+    {
+        return view('admin.extras.create');
+    }
+
+    // Método para almacenar un nuevo extra
+    public function store(Request $request)
+    {
+        $request->validate([
+            'desc_extra' => 'required|string|max:255',
+            'precio_extra' => 'required|numeric|min:0',
+        ]);
+
+        Extras::create([
+            'desc_extra' => $request->desc_extra,
+            'precio_extra' => $request->precio_extra,
+        ]);
+
+        return redirect()->route('extras.index')->with('success', 'Extra creado con éxito');
+    }
 }
