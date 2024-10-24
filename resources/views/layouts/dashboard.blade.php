@@ -8,12 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- BOX ICONS -->
+
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Dashboard</title>
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-    /* Mostrar el dropdown cuando se pasa el cursor sobre el elemento */
+
     .nav-item.dropdown:hover .dropdown-menu {
         display: block;
     }
@@ -33,9 +32,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-orange sidebar sidebar-dark accordion" id="accordionSidebar">
-            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="{{ asset('images/logocafeblanco.png') }}" alt="Logo Café" style="width: 50px;">
@@ -43,14 +40,12 @@
                 <div class="sidebar-brand-text mx-3">La Cafe<sup></sup></div>
             </a>
 
-            <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
             <div class="sidebar-heading">Tablas</div>
 
-            <!-- Usuarios con Dropdown -->
+            @role('admin')
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/home/usuarios" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
@@ -63,28 +58,95 @@
                 </div>
             </li>
 
-            @role('admin')
+            <li class="nav-item">
+                <a class="nav-link" href="/home/tipos_clientes">
+                    <i class="bx bx-box"></i>
+                    <span>Tipo de Cliente</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="/home/puestos">
                     <i class='bx bxs-pin'></i>
                     <span>Puestos</span>
                 </a>
             </li>
-            @endrole
 
-            <li class="nav-item">
-                <a class="nav-link" href="/home/productos">
-                    <i class='bx bxs-cart'></i>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/home/productos" id="usuariosDropdown" role="button">
+                    <i class="bx bxs-user"></i>
                     <span>Productos</span>
                 </a>
+                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="dropdown-item" href="/home/productos_perecederos">Perecederos</a>
+                    <a class="dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
+                </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/home/inventario">
+                <a class="nav-link" href="/home/pedidos">
                     <i class="bx bx-box"></i>
-                    <span>Inventario</span>
+                    <span>Pedidos</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home/entradas">
+                    <i class="bx bx-box"></i>
+                    <span>Entradas</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home/categorias">
+                    <i class="bx bx-box"></i>
+                    <span>Categorias</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home/disponibilidades">
+                    <i class="bx bx-box"></i>
+                    <span>Disponibilidades</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home/estados_pedidos">
+                    <i class="bx bx-box"></i>
+                    <span>Estados del Pedido</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home/extras">
+                    <i class="bx bx-box"></i>
+                    <span>Extras</span>
+                </a>
+            </li>
+
+            @endrole
+
+            @unlessrole('admin') 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/home/productos" id="usuariosDropdown" role="button">
+                    <i class="bx bxs-user"></i>
+                    <span>Productos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="dropdown-item" href="/home/productos_perecederos">Perecederos</a>
+                    <a class="dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home/pedidos">
+                    <i class="bx bx-box"></i>
+                    <span>Pedidos</span>
+                </a>
+            </li>
+
+            @endunlessrole
 
             <li class="nav-item">
                 <a class="nav-link" href="/home">
@@ -93,36 +155,24 @@
                 </a>
             </li>
 
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
-        <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
             <div id="content">
                 @extends('layouts.app')
 
                 @section('content')
 
                 <div class="container-fluid">
-                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">¡Bienvenido!</h1>
                     </div>
                 </div>
 
             </div>
-            <!-- End of Main Content -->
-
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>

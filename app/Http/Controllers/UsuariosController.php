@@ -43,13 +43,6 @@ class UsuariosController extends Controller
         return response()->json($usuario, 201); // Retornar el usuario creado con un código 201
     }
 
-    // Mostrar un usuario específico
-    public function show($id)
-    {
-        $usuario = Usuarios::findOrFail($id); // Encontrar el usuario o lanzar una excepción
-        return response()->json($usuario); // Retornar como JSON
-    }
-
     // Actualizar un usuario
     public function update(Request $request, $id)
     {
@@ -76,12 +69,16 @@ class UsuariosController extends Controller
         return response()->json($usuario); // Retornar el usuario actualizado
     }
 
-    // Eliminar un usuario
     public function destroy($id)
     {
-        $usuario = Usuarios::findOrFail($id); // Encontrar el usuario
-        $usuario->delete(); // Eliminar el usuario
-
-        return response()->json(null, 204); // Retornar una respuesta vacía con código 204
+        $usuarios = Usuarios::find($id);
+    
+        if ($usuarios) {
+            $usuarios->delete();
+            return redirect()->route('usuarios.index')->with('message', 'Usuario eliminado con éxito.');
+        } else {
+            return redirect()->route('usuarios.index')->with('message', 'Usuario no encontrado.');
+        }
     }
+    
 }

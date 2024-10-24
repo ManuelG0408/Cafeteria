@@ -68,7 +68,7 @@
                         <td>{{ $usu->telefono }}</td>
                         <td>{{ $usu->email }}</td>
                         <td>
-                            <a href="" class="btn btn-dark">Detalles</a>
+                           
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ $usu->id }}">
                                 Eliminar
                             </button>
