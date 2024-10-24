@@ -14,4 +14,22 @@ class PuestosController extends Controller
             'puestos' => $puestos
         ]);
     }
+    public function create()
+    {
+        return view('admin.puestos.create');
+    }
+
+    // Método para almacenar un nuevo puesto
+    public function store(Request $request)
+    {
+        $request->validate([
+            'desc_puesto' => 'required|string|max:255',
+        ]);
+
+        Puestos::create([
+            'desc_puesto' => $request->desc_puesto,
+        ]);
+
+        return redirect()->route('puestos.index')->with('success', 'Puesto creado con éxito');
+    }
 }
