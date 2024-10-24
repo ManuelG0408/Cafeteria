@@ -4,7 +4,6 @@
 <div class="container mt-5 mb-5">
     <h1>Empleados</h1>
 
-putas jajaja
     @if(Session::has('message'))
         <div class="alert alert-success" role="alert">
             {{ Session::get('message') }}
@@ -29,7 +28,7 @@ putas jajaja
                 <tr>
                     <td>{{ $empleado->id_empleado }}</td>
                     <td>{{ $empleado->usuario->nombre }} {{ $empleado->usuario->apellido_paterno }} {{ $empleado->usuario->apellido_materno }}</td> 
-                    <td>{{ $empleado->puesto->nombre }}</td>
+                    <td>{{ $empleado->puesto->desc_puesto }}</td>
                     <td>{{ $empleado->fecha_contrato }}</td>
                     <td>{{ $empleado->salario }}</td>
                     <td>

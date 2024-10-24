@@ -30,7 +30,7 @@
             <select class="form-control" name="id_puesto" id="id_puesto" required>
                 <option value="">Seleccione un puesto</option>
                 @foreach($puestos as $puesto)
-                    <option value="{{ $puesto->id_puesto }}">{{ $puesto->nombre }}</option>
+                    <option value="{{ $puesto->id_puesto }}">{{ $puesto->desc_puesto }}</option>
                 @endforeach
             </select>
             @error('id_puesto')
