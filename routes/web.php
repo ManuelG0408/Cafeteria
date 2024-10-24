@@ -39,7 +39,7 @@ Route::resource('/home/categorias', CategoriasController::class);
 Route::resource('/home/empleados', EmpleadosController::class);
 Route::resource('/home/pedidos', PedidosController::class);
 Route::resource('/home/productos', ProductosController::class);
-Route::resource('/home/proovedores', ProductosController::class);
+Route::resource('/home/proovedores', ProovedoresController::class);
 Route::resource('/home/entradas', EntradasController::class);
 Route::resource('/home/productos_perecederos', ProductosPerecederosController::class);
 Route::resource('/home/detalles_pedidos', DetallesPedidosController::class);
