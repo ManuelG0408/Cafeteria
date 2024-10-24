@@ -4,6 +4,7 @@
 <div class="container mt-5 mb-5">
     <h1>Empleados</h1>
 
+putas jajaja
     @if(Session::has('message'))
         <div class="alert alert-success" role="alert">
             {{ Session::get('message') }}

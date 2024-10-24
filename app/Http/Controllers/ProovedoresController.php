@@ -32,7 +32,7 @@ class ProovedoresController extends Controller
         'rfc' => 'required|string|max:13|unique:proovedores,rfc', // RFC debe ser único y obligatorio
     ]);
 
-    Proveedor::create([
+    Proovedores::create([
         'id_usuario' => $request->id_usuario,
         'empresa' => $request->empresa,
         'rfc' => $request->rfc,
