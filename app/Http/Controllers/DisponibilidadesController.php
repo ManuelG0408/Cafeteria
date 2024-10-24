@@ -25,16 +25,16 @@ class DisponibilidadesController extends Controller
             'desc_disponibilidad' => 'required|string|max:255',
         ]);
 
-        Disponibilidad::create($request->all());
+        Disponibilidades::create($request->all());
         return redirect()->route('disponibilidades.index')->with('success', 'Disponibilidad creada con éxito.');
     }
 
-    public function edit(Disponibilidad $disponibilidad)
+    public function edit(Disponibilidades $disponibilidad)
     {
         return view('disponibilidades.edit', compact('disponibilidad'));
     }
 
-    public function update(Request $request, Disponibilidad $disponibilidad)
+    public function update(Request $request, Disponibilidades $disponibilidad)
     {
         $request->validate([
             'desc_disponibilidad' => 'required|string|max:255',
@@ -44,7 +44,7 @@ class DisponibilidadesController extends Controller
         return redirect()->route('disponibilidades.index')->with('success', 'Disponibilidad actualizada con éxito.');
     }
 
-    public function destroy(Disponibilidad $disponibilidad)
+    public function destroy(Disponibilidades $disponibilidad)
     {
         $disponibilidad->delete();
         return redirect()->route('disponibilidades.index')->with('success', 'Disponibilidad eliminada con éxito.');
