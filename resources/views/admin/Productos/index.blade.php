@@ -34,7 +34,8 @@
                 <td>{{ $producto->categoria->nom_categoria ?? 'Sin categoría' }}</td>
                 <td>
                     @if($producto->imagen)
-                        <img src="{{ asset('storage/imagenes/' . $producto->imagen) }}" alt="{{ $producto->nom_producto }}" width="50">
+                    <img src="{{ url('producto/imagen/' . $producto->imagen) }}" alt="{{ $producto->nom_producto }}">
+
                     @else
                         Sin imagen
                     @endif
