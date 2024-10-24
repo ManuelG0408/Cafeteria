@@ -33,7 +33,7 @@ class CategoriasController extends Controller
 
     public function edit(Categorias $categoria)
     {
-        return view('categorias.edit', compact('categoria'));
+        return view('admin.categorias.edit', compact('categoria'));
     }
 
     public function update(Request $request, Categorias $categoria)
