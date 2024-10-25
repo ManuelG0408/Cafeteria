@@ -69,6 +69,16 @@
                 </div>
             </li>
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/home/pedidos" id="usuariosDropdown" role="button">
+                    <i class="bx bxs-user"></i>
+                    <span>Pedidos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="dropdown-item" href="/home/estados_pedidos">Estados del Pedido</a>
+                </div>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="/home/tipos_clientes">
                     <i class="bx bx-box"></i>
@@ -80,13 +90,6 @@
                 <a class="nav-link" href="/home/puestos">
                     <i class='bx bxs-pin'></i>
                     <span>Puestos</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/pedidos">
-                    <i class="bx bx-box"></i>
-                    <span>Pedidos</span>
                 </a>
             </li>
 
@@ -108,13 +111,6 @@
                 <a class="nav-link" href="/home/disponibilidades">
                     <i class="bx bx-box"></i>
                     <span>Disponibilidades</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/estados_pedidos">
-                    <i class="bx bx-box"></i>
-                    <span>Estados del Pedido</span>
                 </a>
             </li>
 

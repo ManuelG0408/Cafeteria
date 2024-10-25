@@ -1,6 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
+@role('admin')
 <div class="container mt-5 mb-5">
     <h1>Crear Producto No Perecedero</h1>
 
@@ -40,4 +42,5 @@
         <a href="{{ route('productos_no_perecederos.index') }}" class="btn btn-secondary mt-3">Volver</a>
     </form>
 </div>
+@endrole
 @endsection

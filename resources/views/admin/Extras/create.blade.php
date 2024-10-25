@@ -1,6 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<div style="text-align: center; margin-top: 20%; margin-bottom: 20%;">
+    <p style="color: red; font-weight: bold; font-size: 36px;">¡No tienes permisos para esta acción!</p>
+    <img src="{{ asset('images/calavera.png') }}" alt="Calavera" style="width: 80px; margin-top: 20px;">
+</div>
+
+ 
+@role('admin')
+
 <div class="container">
     <h1>Crear un nuevo Extra</h1>
 
@@ -26,4 +34,5 @@
         <button type="submit" class="btn btn-primary mt-3">Guardar</button>
     </form>
 </div>
+@endrole
 @endsection
