@@ -1,0 +1,142 @@
+
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin-top: 0;
+}
+
+/* General styling for sidebar links */
+.nav-item .nav-link {
+padding: 15px 20px;
+font-weight: 600;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: space-between;
+text-decoration: none;
+transition: background-color 0.3s, color 0.3s;
+}
+
+/* Icon style and spacing */
+.nav-item .nav-link i {
+margin-right: 10px;
+font-size: 18px;
+}
+
+/* Hover effect for main nav links */
+.nav-item .nav-link:hover {
+background-color: #ff5e00;
+color: #fff;
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+background-color: #242424;
+border: none;
+border-radius: 0;
+box-shadow: none;
+margin: 0;
+}
+
+
+/* Dropdown item hover effect */
+.dropdown-item:hover {
+background-color: #ff5e00;
+color: white;
+}
+
+/* Active state for sidebar items */
+.nav-item .nav-link.active {
+background-color: #ff7f32;
+color: white;
+}
+
+/* Adjust spacing between items */
+.sidebar-divider {
+border-color: #ff7f32;
+margin: 10px 0;
+}
+
+
+/* Sidebar brand styling */
+.sidebar-brand {
+font-size: 1.25rem;
+font-weight: bold;
+color: white;
+}
+
+.sidebar-brand-icon img {
+max-width: 50px;
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+background-color: #ff7f32;
+color: #fff;
+}
+
+.custom-dropdown-menu {
+    display: none; /* Oculta el menú por defecto */
+    position: absolute; /* Permite que el menú se superponga a otros elementos */
+    background-color: #ffffff; /* Color de fondo del menú desplegable */
+    border-radius: 0.35rem; /* Bordes redondeados */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* Sombra del menú */
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    width: 200px; /* Ancho del menú desplegable */
+}
+
+.custom-dropdown:hover .custom-dropdown-menu {
+    display: block; /* Muestra el menú al pasar el ratón sobre el elemento padre */
+}
+
+.custom-dropdown-item {
+    padding: 10px 20px; /* Espaciado del ítem */
+    color: #000000; /* Color del texto en negro */
+    text-decoration: none; /* Sin subrayado */
+    display: block; /* Para que se comporten como bloques */
+}
+
+/* Efecto hover para los ítems del menú */
+.custom-dropdown-item:hover {
+    background-color: #ff5e00; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+}
+
+.custom-dropdown-menu {
+    display: none; /* Oculta el menú por defecto */
+    position: absolute; /* Permite que el menú se superponga a otros elementos */
+    background-color: #ffffff; /* Color de fondo del menú desplegable */
+    border-radius: 0.35rem; /* Bordes redondeados */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* Sombra del menú */
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+.custom-dropdown:hover .custom-dropdown-menu {
+    display: block; /* Muestra el menú al pasar el ratón sobre el elemento padre */
+}
+
+.custom-dropdown-submenu {
+    display: none; /* Oculta el submenú por defecto */
+    background-color: #ffffff; /* Color de fondo del submenú */
+    position: absolute; /* Posiciona el submenú correctamente */
+    left: 100%; /* Alinea el submenú a la derecha del menú principal */
+    top: 0; /* Alinea verticalmente */
+    white-space: nowrap; /* Evita que el texto se divida */
+}
+
+.custom-dropdown-item:hover .custom-dropdown-submenu {
+    display: block; /* Muestra el submenú al pasar el ratón sobre el ítem padre */
+}
+
+.custom-dropdown-item > a {
+    color: #000000; /* Color negro para el texto de los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+/* Efecto hover para los ítems del menú */
+.custom-dropdown-item > a:hover {
+    background-color: #ff5e00; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+}

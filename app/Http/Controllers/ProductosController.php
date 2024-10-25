@@ -56,27 +56,36 @@ class ProductosController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $producto = Productos::findOrFail($id);
+{
+    $producto = Productos::findOrFail($id);
 
-        $request->validate([
-            'nom_producto' => 'required|string|max:255|unique:productos,nom_producto,' . $producto->id_producto . ',id_producto',
-            'desc_producto' => 'required|string',
-            'precio' => 'required|numeric|min:0',
-            'id_categoria' => 'required|exists:categorias,id_categoria',
-            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
+    $request->validate([
+        'nom_producto' => 'required|string|max:255|unique:productos,nom_producto,' . $producto->id_producto . ',id_producto',
+        'desc_producto' => 'required|string',
+        'precio' => 'required|numeric|min:0',
+        'id_categoria' => 'required|exists:categorias,id_categoria',
+        'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+    ]);
 
-        $data = $request->all();
-        
-        if ($request->hasFile('imagen')) {
-            $path = $request->file('imagen')->store('public/images');
-            $data['imagen'] = basename($path);
+    $data = $request->all();
+    
+    if ($request->hasFile('imagen')) {
+        // Elimina la imagen antigua si existe
+        if ($producto->imagen) {
+            $oldImagePath = storage_path('app/public/imagenes/' . $producto->imagen);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath); // Elimina la imagen anterior
+            }
         }
 
-        $producto->update($data);
-        return redirect()->route('productos.index')->with('success', 'Producto actualizado con éxito');
+        $path = $request->file('imagen')->store('public/imagenes'); // Corrige el directorio aquí
+        $data['imagen'] = basename($path); // Actualiza con la nueva imagen
     }
+
+    $producto->update($data);
+    return redirect()->route('productos.index')->with('success', 'Producto actualizado con éxito');
+}
+
 
     // Eliminar un producto
     public function destroy($id)

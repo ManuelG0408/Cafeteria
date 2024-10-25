@@ -1,4 +1,5 @@
 @vite(['resources/css/sb-admin-2.css'])
+@vite(['resources/css/estilo_dashboard.css'])
 
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +12,7 @@
 
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Dashboard</title>
+    <title>La Cafe</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -19,17 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
-
-    .nav-item.dropdown:hover .dropdown-menu {
-        display: block;
-    }
-    .dropdown-menu {
-        margin-top: 0;
-    }
-    </style>
 </head>
-
 <body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-orange sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -46,79 +37,55 @@
             <div class="sidebar-heading">Tablas</div>
 
             @role('admin')
-            <li class="nav-item dropdown">
+            <li class="nav-item custom-dropdown">
                 <a class="nav-link dropdown-toggle" href="/home/usuarios" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
                     <span>Usuarios</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                    <a class="dropdown-item" href="/home/clientes">Clientes</a>
-                    <a class="dropdown-item" href="/home/empleados">Empleados</a>
-                    <a class="dropdown-item" href="/home/proovedores">Proveedores</a>
+                <div class="custom-dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <div class="custom-dropdown-item">
+                        <a href="/home/clientes">Clientes</a>
+                        <div class="custom-dropdown-submenu">
+                            <a class="custom-dropdown-item" href="/home/tipos_clientes">Tipos de Clientes</a>
+                        </div>
+                    </div>
+                    <div class="custom-dropdown-item">
+                        <a href="/home/empleados">Empleados</a>
+                        <div class="custom-dropdown-submenu">
+                            <a class="custom-dropdown-item" href="/home/puestos">Puestos</a>
+                        </div>
+                    </div>
+                    <a class="custom-dropdown-item" href="/home/proovedores">Proveedores</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item custom-dropdown">
                 <a class="nav-link dropdown-toggle" href="/home/productos" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
                     <span>Productos</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                    <a class="dropdown-item" href="/home/productos_perecederos">Perecederos</a>
-                    <a class="dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
+                <div class="custom-dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <div class="custom-dropdown-item">
+                        <a href="/home/productos_perecederos">Productos Perecederos</a>
+                        <div class="custom-dropdown-submenu">
+                            <a class="custom-dropdown-item" href="/home/disponibilidades">Disponibilidades</a>
+                        </div>
+                    </div>
+                    <a class="custom-dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
+                    <a class="custom-dropdown-item" href="/home/categorias">Categorias</a>
+                    <a class="custom-dropdown-item" href="/home/entradas">Entradas</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item custom-dropdown">
                 <a class="nav-link dropdown-toggle" href="/home/pedidos" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
                     <span>Pedidos</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                    <a class="dropdown-item" href="/home/estados_pedidos">Estados del Pedido</a>
+                <div class="custom-dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="custom-dropdown-item" href="/home/estados_pedidos">Estados del Pedido</a>
+                    <a class="custom-dropdown-item" href="/home/estados_pedidos">Extras</a>
                 </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/tipos_clientes">
-                    <i class="bx bx-box"></i>
-                    <span>Tipo de Cliente</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/puestos">
-                    <i class='bx bxs-pin'></i>
-                    <span>Puestos</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/entradas">
-                    <i class="bx bx-box"></i>
-                    <span>Entradas</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/categorias">
-                    <i class="bx bx-box"></i>
-                    <span>Categorias</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/disponibilidades">
-                    <i class="bx bx-box"></i>
-                    <span>Disponibilidades</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/home/extras">
-                    <i class="bx bx-box"></i>
-                    <span>Extras</span>
-                </a>
             </li>
 
             @endrole
