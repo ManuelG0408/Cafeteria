@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Categorias;
+
 class ProductosController extends Controller
 {
     public function index()
@@ -17,8 +18,7 @@ class ProductosController extends Controller
         ]);
     }
 
-
-    // Mostrar formulario de creación
+    
     public function create()
     {
         $categorias = Categorias::all();
@@ -55,13 +55,12 @@ class ProductosController extends Controller
         return view('admin.productos.edit', compact('producto', 'categorias'));
     }
 
-    // Actualizar un producto
     public function update(Request $request, $id)
     {
         $producto = Productos::findOrFail($id);
 
         $request->validate([
-            'nom_producto' => 'required|string|max:255|unique:productos,nom_producto,' . $producto->id_producto,
+            'nom_producto' => 'required|string|max:255|unique:productos,nom_producto,' . $producto->id_producto . ',id_producto',
             'desc_producto' => 'required|string',
             'precio' => 'required|numeric|min:0',
             'id_categoria' => 'required|exists:categorias,id_categoria',
@@ -71,7 +70,7 @@ class ProductosController extends Controller
         $data = $request->all();
         
         if ($request->hasFile('imagen')) {
-            $path = $request->file('imagen')->store('public/imagenes');
+            $path = $request->file('imagen')->store('public/images');
             $data['imagen'] = basename($path);
         }
 
@@ -86,6 +85,12 @@ class ProductosController extends Controller
         $producto->delete();
         return redirect()->route('productos.index')->with('success', 'Producto eliminado con éxito');
     }
+
+    public function show($id)
+{
+    $producto = Productos::findOrFail($id);
+    return view('admin.productos.show', compact('producto'));
+}
     
 
 }

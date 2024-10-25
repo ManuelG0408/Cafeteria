@@ -67,3 +67,8 @@ Route::get('producto/imagen/{filename}', function ($filename) {
 
 // Ruta de perfil
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+
+
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/admin/productos/create', [ProductosController::class, 'create'])->name('admin.productos.create');
+});

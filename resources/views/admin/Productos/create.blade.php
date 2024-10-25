@@ -1,6 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
+@role('admin')
 <div class="container">
     <h1>Crear un nuevo Producto</h1>
 
@@ -55,4 +57,5 @@
         <button type="submit" class="btn btn-primary mt-3">Guardar</button>
     </form>
 </div>
+@endrole
 @endsection

@@ -58,6 +58,17 @@
                 </div>
             </li>
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/home/productos" id="usuariosDropdown" role="button">
+                    <i class="bx bxs-user"></i>
+                    <span>Productos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="dropdown-item" href="/home/productos_perecederos">Perecederos</a>
+                    <a class="dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
+                </div>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="/home/tipos_clientes">
                     <i class="bx bx-box"></i>
@@ -70,17 +81,6 @@
                     <i class='bx bxs-pin'></i>
                     <span>Puestos</span>
                 </a>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/home/productos" id="usuariosDropdown" role="button">
-                    <i class="bx bxs-user"></i>
-                    <span>Productos</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                    <a class="dropdown-item" href="/home/productos_perecederos">Perecederos</a>
-                    <a class="dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
-                </div>
             </li>
 
             <li class="nav-item">
