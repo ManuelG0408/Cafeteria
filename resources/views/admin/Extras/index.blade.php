@@ -2,7 +2,9 @@
 
 
 @section('content')
-<p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para esta accion!</p>
+    @unlessrole('admin')
+        <p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para esta accion!</p>
+    @endunless
 @role('admin')
 <div class="container">
     <h1>Lista de Extras</h1>

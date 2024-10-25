@@ -29,6 +29,14 @@
                     <p class="card-text"><strong>Precio: </strong>${{ number_format($producto->precio, 2) }}</p>
                     <p class="card-text"><strong>Categoría: </strong>{{ $producto->categoria->nom_categoria ?? 'Sin categoría' }}</p>
                 </div>
+
+                @unlessrole('admin')
+                    <div class="d-flex justify-content-center p-3">
+                        <button type="submit" class="btn btn-success me-3">Comprar</button>
+                        <button type="submit" class="btn btn-primary ">Agregar</button>
+                    </div>
+                @endunless
+
                 @role('admin')
                     <div class="text-center p-3">
                         <a href="{{ route('productos.edit', $producto->id_producto) }}" class="btn btn-warning btn-md">Editar</a>

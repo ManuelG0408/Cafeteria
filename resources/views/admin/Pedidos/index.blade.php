@@ -10,8 +10,9 @@
         </div>
     @endif
 
-    <a href="{{ route('pedidos.create') }}" class="btn btn-success">Crear Nuevo Pedido</a>
-
+    @role('cliente')
+        <a href="{{ route('pedidos.create') }}" class="btn btn-success">Crear Nuevo Pedido</a>
+    @endrole
     <table class="table mt-4">
         <thead>
             <tr>

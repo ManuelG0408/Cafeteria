@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
+    <link rel="icon" type="image/png" href="images/logocafeblanco.png">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
     <title>La Cafe</title>
@@ -84,21 +85,21 @@
                 </a>
                 <div class="custom-dropdown-menu" aria-labelledby="usuariosDropdown">
                     <a class="custom-dropdown-item" href="/home/estados_pedidos">Estados del Pedido</a>
-                    <a class="custom-dropdown-item" href="/home/estados_pedidos">Extras</a>
+                    <a class="custom-dropdown-item" href="/home/extras">Extras</a>
                 </div>
             </li>
 
             @endrole
 
             @unlessrole('admin') 
-            <li class="nav-item dropdown">
+            <li class="nav-item custom-dropdown">
                 <a class="nav-link dropdown-toggle" href="/home/productos" id="usuariosDropdown" role="button">
                     <i class="bx bxs-user"></i>
                     <span>Productos</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                    <a class="dropdown-item" href="/home/productos_perecederos">Perecederos</a>
-                    <a class="dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>
+                <div class="custom-dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="custom-dropdown-item" href="/home/productos_perecederos">Perecederos</a>
+                    <a class="custom-dropdown-item" href="/home/productos_no_perecederos">No Perecederos</a>    
                 </div>
             </li>
 

@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('content')
-@unlessrole('admin')
-<p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
-@endunlessrole
+    @unlessrole('admin')
+    <p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
+    @endunlessrole
 @role('admin')
 <div class="container mt-5 mb-5">
     <h1>Editar Producto</h1>
