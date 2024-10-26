@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
+    @unlessrole('admin')
+    <p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
+    @endunless
 @role('admin')
 <div class="container mt-5 mb-5">
     <h1>Crear Producto Perecedero</h1>
@@ -19,7 +21,7 @@
     <form action="{{ route('productos_perecederos.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="id_producto">Producto</label>
+            <label for="id_producto">Producto<span style="color: red;">*</span></label>
             <select class="form-control" name="id_producto" id="id_producto" required>
                 <option value="">Seleccione un producto</option>
                 @foreach($productos as $prod)
@@ -32,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            <label for="id_disponibilidad">Disponibilidades</label>
+            <label for="id_disponibilidad">Disponibilidad<span style="color: red;">*</span></label>
             <select class="form-control" name="id_disponibilidad" id="id_disponibilidad" required>
                 <option value="">Seleccione una disponibilidad</option>
                 @foreach($disponibilidades as $disp)
@@ -45,7 +47,7 @@
         </div>
         
         <button type="submit" class="btn btn-success mt-3">Crear</button>
-        <a href="{{ route('productos_perecederos.index') }}" class="btn btn-secondary mt-3">Volver</a>
+        <a href="{{ route('productos_perecederos.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
     </form>
 </div>
 @endrole

@@ -13,12 +13,9 @@ class Proovedores extends Model
 
     protected $primaryKey = 'id_proovedor';
 
-    protected $fillable = [
-        'id_usuario',
-        'empresa',
-        'rfc',
-    ];
+    protected $fillable = ['id_usuario', 'empresa', 'rfc'];
 
+    // Definición de la relación con el modelo User
     public function usuario()
     {
         return $this->belongsTo(User::class, 'id_usuario');

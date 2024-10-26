@@ -7,11 +7,11 @@
         <form action="{{ route('categorias.store') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="nom_categoria">Nombre</label>
+                <label for="nom_categoria">Nombre<span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="nom_categoria" name="nom_categoria" required>
             </div>
             <div class="form-group">
-                <label for="desc_categoria">Descripción</label>
+                <label for="desc_categoria">Descripción<span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="desc_categoria" name="desc_categoria" required>
             </div>
             <button type="submit" class="btn btn-success">Crear</button>

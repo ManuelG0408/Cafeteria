@@ -7,7 +7,7 @@
         <form action="{{ route('disponibilidades.store') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="desc_disponibilidad">Descripción</label>
+                <label for="desc_disponibilidad">Descripción<span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="desc_disponibilidad" name="desc_disponibilidad" required>
             </div>
             <button type="submit" class="btn btn-success">Crear</button>

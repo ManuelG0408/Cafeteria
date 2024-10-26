@@ -46,90 +46,91 @@
                                 @csrf
 
                                 <!-- Nombre -->
-<div class="row mb-3">
-    <label for="nombre" class="col-md-4 col-form-label text-md-end">{{ __('Nombre') }}</label>
-    <div class="col-md-6">
-        <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autofocus>
-        @error('nombre')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
+                            <div class="row mb-3">
+                                <label for="nombre" class="col-md-4 col-form-label text-md-end">{{ __('Nombre') }}<span style="color: red;">*</span></label>
+                                <div class="col-md-6">
+                                    <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autofocus>
+                                    @error('nombre')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-<!-- Apellido Paterno -->
-<div class="row mb-3">
-    <label for="apellido_paterno" class="col-md-4 col-form-label text-md-end">{{ __('Apellido Paterno') }}</label>
-    <div class="col-md-6">
-        <input id="apellido_paterno" type="text" class="form-control @error('apellido_paterno') is-invalid @enderror" name="apellido_paterno" value="{{ old('apellido_paterno') }}" required>
-        @error('apellido_paterno')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
+                            <!-- Apellido Paterno -->
+                            <div class="row mb-3">
+                                <label for="apellido_paterno" class="col-md-4 col-form-label text-md-end">{{ __('Apellido Paterno') }}<span style="color: red;">*</span></label>
+                                <div class="col-md-6">
+                                    <input id="apellido_paterno" type="text" class="form-control @error('apellido_paterno') is-invalid @enderror" name="apellido_paterno" value="{{ old('apellido_paterno') }}" required>
+                                    @error('apellido_paterno')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-<!-- Apellido Materno -->
-<div class="row mb-3">
-    <label for="apellido_materno" class="col-md-4 col-form-label text-md-end">{{ __('Apellido Materno') }}</label>
-    <div class="col-md-6">
-        <input id="apellido_materno" type="text" class="form-control @error('apellido_materno') is-invalid @enderror" name="apellido_materno" value="{{ old('apellido_materno') }}" required>
-        @error('apellido_materno')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
+                            <!-- Apellido Materno -->
+                            <div class="row mb-3">
+                                <label for="apellido_materno" class="col-md-4 col-form-label text-md-end">{{ __('Apellido Materno') }}<span style="color: red;">*</span></label>
+                                <div class="col-md-6">
+                                    <input id="apellido_materno" type="text" class="form-control @error('apellido_materno') is-invalid @enderror" name="apellido_materno" value="{{ old('apellido_materno') }}" required>
+                                    @error('apellido_materno')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-<!-- Teléfono -->
-<div class="row mb-3">
-    <label for="telefono" class="col-md-4 col-form-label text-md-end">{{ __('Teléfono') }}</label>
-    <div class="col-md-6">
-        <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required>
-        @error('telefono')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
+                            <!-- Teléfono -->
+                            <div class="row mb-3">
+                                <label for="telefono" class="col-md-4 col-form-label text-md-end">{{ __('Teléfono') }}<span style="color: red;">*</span></label>
+                                <div class="col-md-6">
+                                    <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required>
+                                    @error('telefono')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-<!-- Email -->
-<div class="row mb-3">
-    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
-    <div class="col-md-6">
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
-        @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
+                            <!-- Email -->
+                            <div class="row mb-3">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}<span style="color: red;">*</span></label>
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-<!-- Contraseña -->
-<div class="row mb-3">
-    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
-    <div class="col-md-6">
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
-        @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
+                            <!-- Contraseña -->
+                            <div class="row mb-3">
+                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}<span style="color: red;">*</span></label>
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-<!-- Confirmar Contraseña -->
-<div class="row mb-3">
-    <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">{{ __('Confirmar Contraseña') }}</label>
-    <div class="col-md-6">
-        <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
-    </div>
-</div>
+                            <!-- Confirmar Contraseña -->
+                            <div class="row mb-3">
+                            <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">{{ __('Confirmar Contraseña') }} <span style="color: red;">*</span></label>
+
+                                <div class="col-md-6">
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
+                                </div>
+                            </div>
 
 
                                 <div class="row mb-0">

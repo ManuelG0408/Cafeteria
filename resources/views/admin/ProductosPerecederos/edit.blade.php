@@ -18,15 +18,15 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="id_producto">Producto</label>
+            <label for="id_producto">Producto<span style="color: red;">*</span></label>
             <input type="text" name="id_producto" id="id_producto" class="form-control" value="{{ $productoPerecedero->id_producto }}" required>
         </div>
         <div class="form-group mt-3">
-            <label for="id_disponibilidad">Disponibilidad</label>
+            <label for="id_disponibilidad">Disponibilidad<span style="color: red;">*</span></label>
             <input type="text" name="id_disponibilidad" id="id_disponibilidad" class="form-control" value="{{ $productoPerecedero->id_disponibilidad }}" required>
         </div>
         <button type="submit" class="btn btn-warning mt-3">Actualizar</button>
-        <a href="{{ route('productos_perecederos.index') }}" class="btn btn-secondary mt-3">Volver</a>
+        <a href="{{ route('productos_perecederos.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
     </form>
 </div>
 @endsection

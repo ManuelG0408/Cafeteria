@@ -27,22 +27,6 @@
     <div class="container mt-5 mb-5">
         <div class="header">
             <h1>Usuarios</h1>
-
-            <div class="row">
-                <div class="col-lg-10">
-                    <!-- Topbar Search -->
-                    <form id="globalSearchForm" class="d-none d-sm-inline-block form-inline my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" id="searchInput" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="bx bx-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
 
         <div class="page-content mt-4">

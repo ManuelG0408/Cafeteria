@@ -16,11 +16,13 @@ class TiposClientesController extends Controller
         ]);
     }
 
+    // Mostrar formulario para crear un nuevo tipo de cliente
     public function create()
     {
         return view('admin.tipos_clientes.create');
     }
 
+    // Almacenar el nuevo tipo de cliente
     public function store(Request $request)
     {
         $request->validate([
@@ -28,27 +30,34 @@ class TiposClientesController extends Controller
         ]);
 
         TiposClientes::create($request->all());
-        return redirect()->route('tipos_clientes.index')->with('success', 'Tipo de cliente creado con éxito.');
+        return redirect()->route('tipos_clientes.index')->with('success', 'Tipo de cliente creado con éxito');
     }
 
-    public function edit(TiposClientes $tipoCliente)
+    // Mostrar formulario para editar un tipo de cliente
+    public function edit($id)
     {
+        $tipoCliente = TiposClientes::findOrFail($id);
         return view('admin.tipos_clientes.edit', compact('tipoCliente'));
     }
 
-    public function update(Request $request, TiposClientes $tipoCliente)
+    // Actualizar el tipo de cliente
+    public function update(Request $request, $id)
     {
+        $tipoCliente = TiposClientes::findOrFail($id);
+
         $request->validate([
             'desc_tipo_cliente' => 'required|string|max:255',
         ]);
 
         $tipoCliente->update($request->all());
-        return redirect()->route('tipos_clientes.index')->with('success', 'Tipo de cliente actualizado con éxito.');
+        return redirect()->route('tipos_clientes.index')->with('success', 'Tipo de cliente actualizado con éxito');
     }
 
-    public function destroy(TiposClientes $tipoCliente)
+    // Eliminar un tipo de cliente
+    public function destroy($id)
     {
+        $tipoCliente = TiposClientes::findOrFail($id);
         $tipoCliente->delete();
-        return redirect()->route('tipos_clientes.index')->with('success', 'Tipo de cliente eliminado con éxito.');
+        return redirect()->route('tipos_clientes.index')->with('success', 'Tipo de cliente eliminado con éxito');
     }
 }

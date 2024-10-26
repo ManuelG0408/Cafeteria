@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Productos</h1>
         @role('admin')
-            <a href="{{ route('productos.create') }}" class="btn btn-primary mb-3">Crear nuevo Producto</a>
+            <a href="{{ route('productos.create') }}" class="btn btn-success mb-3">Crear nuevo Producto</a>
         @endrole
     @if(session('success'))
         <div class="alert alert-success">

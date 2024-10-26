@@ -18,27 +18,57 @@ class ProovedoresController extends Controller
         ]);
     }
 
+    // Mostrar formulario para crear un nuevo proveedor
     public function create()
     {
-        $usuarios = User::all(); // Obtener todos los usuarios para el formulario
+        $usuarios = User::all(); // Obtener todos los usuarios
         return view('admin.proovedores.create', compact('usuarios'));
     }
 
+
+    // Almacenar el nuevo proveedor
     public function store(Request $request)
-{
-    $request->validate([
-        'id_usuario' => 'required|exists:users,id', // Validar que el ID del usuario exista
-        'empresa' => 'required|string|max:255', // Campo obligatorio
-        'rfc' => 'required|string|max:13|unique:proovedores,rfc', // RFC debe ser único y obligatorio
-    ]);
+    {
+        $request->validate([
+            'id_usuario' => 'required|exists:users,id',
+            'empresa' => 'required|string|max:255',
+            'rfc' => 'required|string|max:255|unique:proovedores',
+        ]);
 
-    Proovedores::create([
-        'id_usuario' => $request->id_usuario,
-        'empresa' => $request->empresa,
-        'rfc' => $request->rfc,
-    ]);
+        Proovedores::create($request->all());
+        return redirect()->route('proovedores.index')->with('success', 'Proveedor creado con éxito');
+    }
 
-    return redirect()->route('proovedores.index')->with('message', 'Proveedor creado con éxito.');
-}
+    // Mostrar formulario para editar un proveedor
+        public function edit($id)
+    {
+        $proovedor = Proovedores::findOrFail($id);
+        $usuarios = User::all(); // Obtener todos los usuarios
+        return view('admin.proovedores.edit', compact('proovedor', 'usuarios'));
+    }
+
+
+    // Actualizar el proveedor
+    public function update(Request $request, $id)
+    {
+        $proovedor = Proovedores::findOrFail($id);
+
+        $request->validate([
+            'id_usuario' => 'required|exists:users,id',
+            'empresa' => 'required|string|max:255',
+            'rfc' => 'required|string|max:255|unique:proovedores,rfc,' . $proovedor->id_proovedor . ',id_proovedor',
+        ]);
+
+        $proovedor->update($request->all());
+        return redirect()->route('proovedores.index')->with('success', 'Proveedor actualizado con éxito');
+    }
+
+    // Eliminar un proveedor
+    public function destroy($id)
+    {
+        $proovedor = Proovedores::findOrFail($id);
+        $proovedor->delete();
+        return redirect()->route('proovedores.index')->with('success', 'Proveedor eliminado con éxito');
+    }
 
 }

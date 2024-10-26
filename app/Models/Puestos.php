@@ -13,6 +13,5 @@ class Puestos extends Model
 
     protected $primaryKey = 'id_puesto';
 
-    protected $fillable = ['desc_puesto'];
-
+    protected $fillable = ['desc_puesto']; 
 }

@@ -13,7 +13,7 @@
     <form action="{{ route('empleados.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="id_usuario">Usuario</label>
+            <label for="id_usuario">Usuario<span style="color: red;">*</span></label>
             <select class="form-control" name="id_usuario" id="id_usuario" required>
                 <option value="">Seleccione un usuario</option>
                 @foreach($usuarios as $usuario)
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            <label for="id_puesto">Puesto</label>
+            <label for="id_puesto">Puesto<span style="color: red;">*</span></label>
             <select class="form-control" name="id_puesto" id="id_puesto" required>
                 <option value="">Seleccione un puesto</option>
                 @foreach($puestos as $puesto)
@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-group">
-            <label for="fecha_contrato">Fecha de Contrato</label>
+            <label for="fecha_contrato">Fecha de Contrato<span style="color: red;">*</span></label>
             <input type="date" class="form-control" name="fecha_contrato" id="fecha_contrato" required>
             @error('fecha_contrato')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="form-group">
-            <label for="salario">Salario</label>
+            <label for="salario">Salario<span style="color: red;">*</span></label>
             <input type="number" class="form-control" name="salario" id="salario" step="0.01" required>
             @error('salario')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -55,7 +55,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Crear Empleado</button>
-        <a href="{{ route('empleados.index') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('empleados.index') }}" class="btn btn-success">Cancelar</a>
     </form>
 </div>
 @endsection

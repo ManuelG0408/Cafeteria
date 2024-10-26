@@ -13,7 +13,7 @@
         @method('PUT')
 
         <div class="mb-3">
-            <label for="nom_producto" class="form-label">Nombre del Producto</label>
+            <label for="nom_producto" class="form-label">Nombre del Producto<span style="color: red;">*</span></label>
             <input type="text" class="form-control" id="nom_producto" name="nom_producto" value="{{ old('nom_producto', $producto->nom_producto) }}" required>
             @error('nom_producto')
                 <div class="text-danger">{{ $message }}</div>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="desc_producto" class="form-label">Descripción del Producto</label>
+            <label for="desc_producto" class="form-label">Descripción del Producto<span style="color: red;">*</span></label>
             <textarea class="form-control" id="desc_producto" name="desc_producto" required>{{ old('desc_producto', $producto->desc_producto) }}</textarea>
             @error('desc_producto')
                 <div class="text-danger">{{ $message }}</div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="precio" class="form-label">Precio</label>
+            <label for="precio" class="form-label">Precio<span style="color: red;">*</span></label>
             <input type="number" class="form-control" id="precio" name="precio" value="{{ old('precio', $producto->precio) }}" required step="0.01" min="0">
             @error('precio')
                 <div class="text-danger">{{ $message }}</div>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="id_categoria" class="form-label">Categoría</label>
+            <label for="id_categoria" class="form-label">Categoría<span style="color: red;">*</span></label>
             <select class="form-select" id="id_categoria" name="id_categoria" required>
                 @foreach($categorias as $categoria)
                     <option value="{{ $categoria->id_categoria }}" {{ $producto->id_categoria == $categoria->id_categoria ? 'selected' : '' }}>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen del Producto</label>
+            <label for="imagen" class="form-label">Imagen del Producto<span style="color: red;">*</span></label>
             <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
             <small class="form-text text-muted">La imagen actual es: {{ $producto->imagen }}</small>
             @error('imagen')

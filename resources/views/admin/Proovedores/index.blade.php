@@ -1,16 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container mt-5 mb-5">
-    <h1>Proveedores</h1>
+<div class="container">
+    <h1>Lista de Proveedores</h1>
+    <a href="{{ route('proovedores.create') }}" class="btn btn-success">Agregar Nuevo Proveedor</a>
 
-    @if(Session::has('message'))
-        <div class="alert alert-success" role="alert">
-            {{ Session::get('message') }}
-        </div>
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-
-    <a href="{{ route('proovedores.create') }}" class="btn btn-success">Crear Nuevo Proveedor</a>
 
     <table class="table">
         <thead>
@@ -26,7 +23,7 @@
             @foreach($proovedores as $proovedor)
                 <tr>
                     <td>{{ $proovedor->id_proovedor }}</td>
-                    <td>{{ $proovedor->usuario->nombre }} {{ $proovedor->usuario->apellido_paterno }} {{ $proovedor->usuario->apellido_materno }}</td>
+                    <td>{{ $proovedor->usuario->nombre }}</td>
                     <td>{{ $proovedor->empresa }}</td>
                     <td>{{ $proovedor->rfc }}</td>
                     <td>
@@ -34,7 +31,7 @@
                         <form action="{{ route('proovedores.destroy', $proovedor->id_proovedor) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este proveedor?');">Eliminar</button>
                         </form>
                     </td>
                 </tr>

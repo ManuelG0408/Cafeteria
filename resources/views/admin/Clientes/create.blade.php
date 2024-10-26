@@ -6,7 +6,7 @@
     <form action="{{ route('clientes.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="id_usuario">Usuario</label>
+            <label for="id_usuario">Usuario<span style="color: red;">*</span></label>
             <select name="id_usuario" class="form-control" required>
                 <option value="">Selecciona un usuario</option>
                 @foreach($usuarios as $usuario)
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-            <label for="id_tipo_cliente">Tipo de Cliente</label>
+            <label for="id_tipo_cliente">Tipo de Cliente<span style="color: red;">*</span></label>
             <select name="id_tipo_cliente" class="form-control" required>
                 <option value="">Selecciona un tipo de cliente</option>
                 @foreach($tiposClientes as $tipo)
@@ -26,11 +26,11 @@
         </div>
 
         <div class="form-group">
-            <label for="saldo">Saldo</label>
+            <label for="saldo">Saldo<span style="color: red;">*</span></label>
             <input type="number" name="saldo" class="form-control" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 </div>
 @endsection

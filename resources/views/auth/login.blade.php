@@ -46,7 +46,7 @@
 
                                 <div class="form-outline form-white mb-4">
                                     <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
-                                    <label class="form-label" for="email">{{ __('Email') }}</label>
+                                    <label class="form-label" for="email">{{ __('Email') }}<span style="color: red;">*</span></label>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
 
                                 <div class="form-outline form-white mb-4">
                                     <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
-                                    <label class="form-label" for="password">{{ __('Contraseña') }}</label>
+                                    <label class="form-label" for="password">{{ __('Contraseña') }}<span style="color: red;">*</span></label>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
