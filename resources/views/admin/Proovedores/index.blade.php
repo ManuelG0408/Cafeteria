@@ -23,7 +23,7 @@
             @foreach($proovedores as $proovedor)
                 <tr>
                     <td>{{ $proovedor->id_proovedor }}</td>
-                    <td>{{ $proovedor->usuario->nombre }}</td>
+                    <td>{{ $proovedor->usuario->nombre }} {{ $proovedor->usuario->apellido_paterno }} {{ $proovedor->usuario->apellido_materno }}</td>
                     <td>{{ $proovedor->empresa }}</td>
                     <td>{{ $proovedor->rfc }}</td>
                     <td>

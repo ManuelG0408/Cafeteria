@@ -23,8 +23,8 @@
             @foreach($clientes as $cliente)
             <tr>
                 <td>{{ $cliente->id_cliente }}</td>
-                <td>{{ $cliente->usuario->name }}</td>
-                <td>{{ $cliente->tipoCliente->nombre }}</td>
+                <td>{{ $cliente->usuario->nombre}} {{ $cliente->usuario->apellido_paterno }} {{ $cliente->usuario->apellido_materno }}</td>
+                <td>{{ $cliente->tipoCliente->desc_tipo_cliente }}</td>
                 <td>{{ $cliente->saldo }}</td>
                 <td>
                     <a href="{{ route('clientes.edit', $cliente->id_cliente) }}" class="btn btn-warning">Editar</a>

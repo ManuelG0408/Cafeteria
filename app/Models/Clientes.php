@@ -18,7 +18,7 @@ class Clientes extends Model
     // Relación con usuarios
     public function usuario()
     {
-        return $this->belongsTo(Users::class, 'id_usuario');
+        return $this->belongsTo(User::class, 'id_usuario');
     }
 
     // Relación con tipos de clientes

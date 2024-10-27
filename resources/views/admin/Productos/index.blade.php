@@ -28,7 +28,9 @@
                     <h5 class="card-title">{{ $producto->nom_producto }}</h5>
                     <p class="card-text">{{ Str::limit($producto->desc_producto, 100, '...') }}</p>
                     <p class="card-text"><strong>Precio: </strong>${{ number_format($producto->precio, 2) }}</p>
-                    <p class="card-text"><strong>Categoría: </strong>{{ $producto->categoria->nom_categoria ?? 'Sin categoría' }}</p>
+                    @role('admin')
+                        <p class="card-text"><strong>Categoría: </strong>{{ $producto->categoria->nom_categoria ?? 'Sin categoría' }}</p>
+                    @endrole
                 </div>
 
                 @unlessrole('admin')

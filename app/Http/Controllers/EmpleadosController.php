@@ -19,11 +19,10 @@ class EmpleadosController extends Controller
 
     public function create()
     {
-        $usuarios = User::all(); // Obtener todos los usuarios para el formulario
-        $puestos = Puestos::all(); // Obtener todos los puestos para el formulario
+        $usuarios = User::all();
+        $puestos = Puestos::all();
         return view('admin.empleados.create', compact('usuarios', 'puestos'));
     }
-
 
     public function store(Request $request)
     {
@@ -34,13 +33,35 @@ class EmpleadosController extends Controller
             'salario' => 'required|numeric',
         ]);
 
-        Empleados::create([
-            'id_usuario' => $request->id_usuario, 
-            'id_puesto' => $request->id_puesto,
-            'fecha_contrato' => $request->fecha_contrato,
-            'salario' => $request->salario,
+        Empleados::create($request->all());
+
+        return redirect()->route('empleados.index')->with('success', 'Empleado creado con éxito.');
+    }
+
+    public function edit(Empleados $empleado)
+    {
+        $usuarios = User::all();
+        $puestos = Puestos::all();
+        return view('admin.empleados.edit', compact('empleado', 'usuarios', 'puestos'));
+    }
+
+    public function update(Request $request, Empleados $empleado)
+    {
+        $request->validate([
+            'id_usuario' => 'required|exists:users,id',
+            'id_puesto' => 'required|exists:puestos,id_puesto',
+            'fecha_contrato' => 'required|date',
+            'salario' => 'required|numeric',
         ]);
 
-        return redirect()->route('empleados.index')->with('message', 'Empleado creado con éxito.');
+        $empleado->update($request->all());
+
+        return redirect()->route('empleados.index')->with('success', 'Empleado actualizado con éxito.');
+    }
+
+    public function destroy(Empleados $empleado)
+    {
+        $empleado->delete();
+        return redirect()->route('empleados.index')->with('success', 'Empleado eliminado con éxito.');
     }
 }

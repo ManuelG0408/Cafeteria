@@ -11,7 +11,7 @@
             <label for="id_usuario">Usuario</label>
             <select name="id_usuario" class="form-control" required>
                 @foreach($usuarios as $usuario)
-                    <option value="{{ $usuario->id }}" {{ $cliente->id_usuario == $usuario->id ? 'selected' : '' }}>{{ $usuario->name }}</option>
+                    <option value="{{ $usuario->id }}" {{ $cliente->id_usuario == $usuario->id ? 'selected' : '' }}>{{ $usuario->nombre }} {{ $cliente->usuario->apellido_paterno }} {{ $cliente->usuario->apellido_materno }}</option>
                 @endforeach
             </select>
         </div>
@@ -20,7 +20,7 @@
             <label for="id_tipo_cliente">Tipo de Cliente</label>
             <select name="id_tipo_cliente" class="form-control" required>
                 @foreach($tiposClientes as $tipo)
-                    <option value="{{ $tipo->id_tipo_cliente }}" {{ $cliente->id_tipo_cliente == $tipo->id_tipo_cliente ? 'selected' : '' }}>{{ $tipo->nombre }}</option>
+                    <option value="{{ $tipo->id_tipo_cliente }}" {{ $cliente->id_tipo_cliente == $tipo->id_tipo_cliente ? 'selected' : '' }}>{{ $tipo->desc_tipo_cliente }}</option>
                 @endforeach
             </select>
         </div>

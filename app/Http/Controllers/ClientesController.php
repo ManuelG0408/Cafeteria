@@ -36,23 +36,23 @@ class ClientesController extends Controller
             'saldo' => 'required|numeric|min:0',
         ]);
 
-        Cliente::create($request->all());
+        Clientes::create($request->all());
         return redirect()->route('clientes.index')->with('success', 'Cliente creado con éxito');
     }
 
     // Mostrar formulario de edición
     public function edit($id)
     {
-        $cliente = Cliente::findOrFail($id);
+        $cliente = Clientes::findOrFail($id);
         $usuarios = User::all();
         $tiposClientes = TiposClientes::all();
-        return view('clientes.edit', compact('cliente', 'usuarios', 'tiposClientes'));
+        return view('admin.clientes.edit', compact('cliente', 'usuarios', 'tiposClientes'));
     }
 
     // Actualizar un cliente
     public function update(Request $request, $id)
     {
-        $cliente = Cliente::findOrFail($id);
+        $cliente = Clientes::findOrFail($id);
 
         $request->validate([
             'id_usuario' => 'required|exists:users,id',
@@ -67,7 +67,7 @@ class ClientesController extends Controller
     // Eliminar un cliente
     public function destroy($id)
     {
-        $cliente = Cliente::findOrFail($id);
+        $cliente = Clientes::findOrFail($id);
         $cliente->delete();
         return redirect()->route('clientes.index')->with('success', 'Cliente eliminado con éxito');
     }

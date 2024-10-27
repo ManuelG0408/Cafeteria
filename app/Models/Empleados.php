@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Empleados extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'empleados';
+
+    protected $primaryKey = 'id_empleado';
 
     protected $fillable = [
         'id_usuario',
@@ -20,11 +22,11 @@ class Empleados extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'id_usuario', 'id'); // Relación con la tabla 'users'
+        return $this->belongsTo(User::class, 'id_usuario');
     }
 
     public function puesto()
     {
-        return $this->belongsTo(Puestos::class, 'id_puesto', 'id_puesto'); // Relación con la tabla 'puestos'
+        return $this->belongsTo(Puestos::class, 'id_puesto');
     }
 }

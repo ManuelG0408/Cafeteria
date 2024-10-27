@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
     <h1>Lista de Productos Perecederos</h1>
+    
+    @role('admin')
     <a href="{{ route('productos_perecederos.create') }}" class="btn btn-success">Agregar Nuevo Producto Perecedero</a>
+    @endrole
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -19,9 +22,19 @@
                     <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sin imagen" style="height: 250px; object-fit: cover;">
                     @endif
                     <div class="card-body">
-                        <h5 class="card-title">{{ $productoPerecedero->producto->desc_producto }}</h5>
-                        <p class="card-text"><strong>ID:</strong> {{ $productoPerecedero->id_productoperecedero }}</p>
+                        <h5 class="card-title">{{ $productoPerecedero->producto->nom_producto }}</h5>
+                        <p class="card-text">{{ $productoPerecedero->producto->desc_producto }}</p>
                         <p class="card-text"><strong>Disponibilidad:</strong> {{ $productoPerecedero->disponibilidad->desc_disponibilidad }}</p>
+                        <p class="card-text"><strong>Precio:</strong> $ {{ $productoPerecedero->producto->precio }}</p>
+
+                        @unlessrole('admin')
+                            <div class="d-flex justify-content-center p-3">
+                                <button type="submit" class="btn btn-success me-3">Comprar</button>
+                                <button type="submit" class="btn btn-primary ">Agregar</button>
+                            </div>
+                        @endunless
+
+                        @role('admin')
                         <div class="text-center p-3">
                             <a href="{{ route('productos_perecederos.edit', $productoPerecedero->id_productoperecedero) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('productos_perecederos.destroy', $productoPerecedero->id_productoperecedero) }}" method="POST" style="display:inline;">
@@ -30,6 +43,7 @@
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</button>
                             </form>
                         </div>  
+                        @endrole
                     </div>    
                 </div>
             </div>

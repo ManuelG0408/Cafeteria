@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
     <h1>Lista de Productos No Perecederos</h1>
-    <a href="{{ route('productos_no_perecederos.create') }}" class="btn btn-success">Agregar Nuevo Producto No Perecedero</a>
+
+    @role('admin')
+        <a href="{{ route('productos_no_perecederos.create') }}" class="btn btn-success">Agregar Nuevo Producto No Perecedero</a>
+    @endrole
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -21,8 +24,21 @@
 
                     <div class="card-body">
                         <h5 class="card-title">Producto: {{ $productoNoPerecedero->producto->nom_producto }}</h5>
-                        <p class="card-text"><strong>Existencia:</strong> {{ $productoNoPerecedero->existencia }}</p>
-                        <p class="card-text"><strong>Fecha de Expiración:</strong> {{ $productoNoPerecedero->fecha_expiracion }}</p>
+                        <p class="card-text">{{ $productoNoPerecedero->producto->desc_producto }}</p>
+                        <p class="card-text"><strong>Precio:</strong> $ {{ $productoNoPerecedero->producto->precio }}</p>
+                        @role('admin')
+                            <p class="card-text"><strong>Existencia:</strong> {{ $productoNoPerecedero->existencia }}</p>
+                            <p class="card-text"><strong>Fecha de Expiración:</strong> {{ $productoNoPerecedero->fecha_expiracion }}</p>
+                        @endrole
+
+                        @unlessrole('admin')
+                            <div class="d-flex justify-content-center p-3">
+                                <button type="submit" class="btn btn-success me-3">Comprar</button>
+                                <button type="submit" class="btn btn-primary ">Agregar</button>
+                            </div>
+                        @endunless
+
+                        @role('admin')
                         <div class="text-center p-3">
                             <a href="{{ route('productos_no_perecederos.edit', $productoNoPerecedero->id_productonoperecedero) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('productos_no_perecederos.destroy', $productoNoPerecedero->id_productonoperecedero) }}" method="POST" style="display:inline;">
@@ -31,6 +47,8 @@
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</button>
                             </form>
                         </div>  
+                        @endrole
+
                     </div> 
                 </div>
             </div>
