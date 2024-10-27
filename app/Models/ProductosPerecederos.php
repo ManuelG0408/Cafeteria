@@ -10,7 +10,11 @@ class ProductosPerecederos extends Model
     use HasFactory;
 
     protected $table = 'productos_perecederos';
-    protected $primaryKey = 'id_productoperecedero'; // Definir la clave primaria
+
+    // Especificar la columna que actúa como clave primaria
+    protected $primaryKey = 'id_productoperecedero'; // Asegúrate de que este nombre coincida con el de tu base de datos
+
+    public $timestamps = false; // Si no estás utilizando timestamps
 
     protected $fillable = [
         'id_producto',
@@ -19,11 +23,11 @@ class ProductosPerecederos extends Model
 
     public function producto()
     {
-        return $this->belongsTo(Productos::class, 'id_producto');
+        return $this->belongsTo(Productos::class, 'id_producto', 'id_producto');
     }
 
     public function disponibilidad()
     {
-        return $this->belongsTo(Disponibilidades::class, 'id_disponibilidad');
+        return $this->belongsTo(Disponibilidades::class, 'id_disponibilidad', 'id_disponibilidad');
     }
 }

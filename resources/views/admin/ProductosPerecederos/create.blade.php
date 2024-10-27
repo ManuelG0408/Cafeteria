@@ -1,54 +1,31 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    @unlessrole('admin')
-    <p style="color: red; font-weight: bold; font-size: 36px; text-align: center; margin-top: 20%; margin-bottom: 20%;">¡No tienes permisos para crear productos!</p>
-    @endunless
-@role('admin')
-<div class="container mt-5 mb-5">
-    <h1>Crear Producto Perecedero</h1>
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<div class="container">
+    <h1>Agregar Producto Perecedero</h1>
 
     <form action="{{ route('productos_perecederos.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="id_producto">Producto<span style="color: red;">*</span></label>
-            <select class="form-control" name="id_producto" id="id_producto" required>
-                <option value="">Seleccione un producto</option>
-                @foreach($productos as $prod)
-                    <option value="{{ $prod->id_producto}}">{{ $prod->nom_producto }}</option>
+            <label for="id_producto">Producto</label>
+            <select name="id_producto" id="id_producto" class="form-control">
+                @foreach($productos as $producto)
+                    <option value="{{ $producto->id_producto }}">{{ $producto->desc_producto }}</option>
                 @endforeach
             </select>
-            @error('id_producto')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="id_disponibilidad">Disponibilidad<span style="color: red;">*</span></label>
-            <select class="form-control" name="id_disponibilidad" id="id_disponibilidad" required>
-                <option value="">Seleccione una disponibilidad</option>
-                @foreach($disponibilidades as $disp)
-                    <option value="{{ $disp->id_disponibilidad}}">{{ $disp->desc_disponibilidad }}</option>
-                @endforeach
-            </select>
-            @error('id_disponibilidad')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
         </div>
         
-        <button type="submit" class="btn btn-success mt-3">Crear</button>
-        <a href="{{ route('productos_perecederos.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+        <div class="form-group">
+            <label for="id_disponibilidad">Disponibilidad</label>
+            <select name="id_disponibilidad" id="id_disponibilidad" class="form-control">
+                @foreach($disponibilidades as $disponibilidad)
+                    <option value="{{ $disponibilidad->id_disponibilidad }}">{{ $disponibilidad->descripcion }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Agregar</button>
+        <a href="{{ route('productos_perecederos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
-@endrole
 @endsection

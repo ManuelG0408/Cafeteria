@@ -9,15 +9,11 @@ class ProductosNoPerecederos extends Model
 {
     use HasFactory;
 
-    protected $table = 'productos_no_perecederos'; // Nombre de la tabla
+    protected $table = 'productos_no_perecederos';
 
-    protected $primaryKey = 'id_productonoperecedero'; // Clave primaria
+    protected $primaryKey = 'id_productonoperecedero';
 
-    protected $fillable = [
-        'id_producto',
-        'existencia',
-        'fecha_expiracion',
-    ];
+    protected $fillable = ['id_producto', 'existencia', 'fecha_expiracion'];
 
     // Relación con el modelo Producto
     public function producto()

@@ -48,6 +48,7 @@ Route::resource('/home/detalles_pedidos', DetallesPedidosController::class);
 Route::resource('/home/asigna_extras_pedidos', AsignaExtrasPedidosController::class);
 Route::resource('/home/productos_no_perecederos', ProductosNoPerecederosController::class);
 
+
 // Ruta para mostrar las imágenes de los productos
 Route::get('producto/imagen/{filename}', function ($filename) {
     $path = storage_path('app/private/public/imagenes/' . $filename);

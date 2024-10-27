@@ -3,9 +3,10 @@
 @section('content')
 <div class="container">
     <h1>Productos</h1>
-        @role('admin')
-            <a href="{{ route('productos.create') }}" class="btn btn-success mb-3">Crear nuevo Producto</a>
-        @endrole
+    @role('admin')
+        <a href="{{ route('productos.create') }}" class="btn btn-success mb-3">Crear nuevo Producto</a>
+    @endrole
+
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -14,11 +15,11 @@
 
     <div class="row">
         @foreach($productos as $producto)
-        <div class="col-md-4 mb-4">
+        <div class="col-md-3 mb-2">
             <div class="card h-100" style="max-width: 250px;">
    
                 @if($producto->imagen)
-                <img src="{{ url('producto/imagen/' . $producto->imagen) }}" class="card-img-top" alt="{{ $producto->nom_producto }}" style="height: 250px; object-fit: cover;"> <!-- Doblamos la altura de la imagen -->
+                <img src="{{ asset('storage/imagenes/' . $producto->imagen) }}" class="card-img-top" alt="{{ $producto->nom_producto }}" style="height: 250px; object-fit: cover;">
                 @else
                 <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sin imagen" style="height: 250px; object-fit: cover;">
                 @endif
@@ -44,7 +45,7 @@
                         <form action="{{ route('productos.destroy', $producto->id_producto) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-md" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button> <!-- Aumentamos el tamaño del botón -->
+                            <button type="submit" class="btn btn-danger btn-md" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>
                         </form>
                     </div>
                 @endrole

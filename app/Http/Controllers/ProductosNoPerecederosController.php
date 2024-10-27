@@ -8,56 +8,61 @@ use App\Models\Productos;
 
 class ProductosNoPerecederosController extends Controller
 {
+    // Mostrar todos los productos no perecederos
     public function index()
     {
-
-        $productos_no_perecederos = ProductosNoPerecederos::all(); // Obtener todos los usuarios
-        return view('admin.productosnoperecederos.index', [ // Asegúrate de usar la notación de puntos
-            'productos_no_perecederos' => $productos_no_perecederos // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
-
-        ]);
+        $productosNoPerecederos = ProductosNoPerecederos::with('producto')->get();
+        return view('admin.productosnoperecederos.index', compact('productosNoPerecederos'));
     }
 
+    // Mostrar formulario para crear un nuevo producto no perecedero
     public function create()
     {
-        $productos = Productos::all();
+        $productos = Productos::all(); // Obtener todos los productos para seleccionar
         return view('admin.productosnoperecederos.create', compact('productos'));
     }
 
+    // Almacenar el nuevo producto no perecedero
     public function store(Request $request)
     {
         $request->validate([
             'id_producto' => 'required|exists:productos,id_producto',
             'existencia' => 'required|integer|min:0',
-            'fecha_expiracion' => 'required|date',
+            'fecha_expiracion' => 'required|date|after:today',
         ]);
 
         ProductosNoPerecederos::create($request->all());
-
-        return redirect()->route('productosnoperecederos.index')->with('message', 'Producto No Perecedero creado exitosamente.');
+        return redirect()->route('productos_no_perecederos.index')->with('success', 'Producto no perecedero creado con éxito');
     }
 
-    public function edit(ProductosNoPerecederos $productoNoPerecedero)
+    // Mostrar formulario para editar un producto no perecedero
+    public function edit($id)
     {
-        return view('productosnoperecederos.edit', compact('productoNoPerecedero'));
+        $productoNoPerecedero = ProductosNoPerecederos::findOrFail($id);
+        $productos = Productos::all(); // Obtener todos los productos para seleccionar
+        return view('admin.productosnoperecederos.edit', compact('productoNoPerecedero', 'productos'));
     }
 
-    public function update(Request $request, ProductosNoPerecederos $productoNoPerecedero)
+    // Actualizar el producto no perecedero
+    public function update(Request $request, $id)
     {
+        $productoNoPerecedero = ProductosNoPerecederos::findOrFail($id);
+
         $request->validate([
             'id_producto' => 'required|exists:productos,id_producto',
             'existencia' => 'required|integer|min:0',
-            'fecha_expiracion' => 'required|date',
+            'fecha_expiracion' => 'required|date|after:today',
         ]);
 
         $productoNoPerecedero->update($request->all());
-
-        return redirect()->route('productosnoperecederos.index')->with('message', 'Producto No Perecedero actualizado exitosamente.');
+        return redirect()->route('productos_no_perecederos.index')->with('success', 'Producto no perecedero actualizado con éxito');
     }
 
-    public function destroy(ProductosNoPerecederos $productoNoPerecedero)
+    // Eliminar un producto no perecedero
+    public function destroy($id)
     {
+        $productoNoPerecedero = ProductosNoPerecederos::findOrFail($id);
         $productoNoPerecedero->delete();
-        return redirect()->route('productosnoperecederos.index')->with('message', 'Producto No Perecedero eliminado exitosamente.');
+        return redirect()->route('productos_no_perecederos.index')->with('success', 'Producto no perecedero eliminado con éxito');
     }
 }
