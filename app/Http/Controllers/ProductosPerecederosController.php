@@ -22,7 +22,7 @@ class ProductosPerecederosController extends Controller
     {
         $productos = Productos::all();
         $disponibilidades = Disponibilidades::all();
-        return view('productos_perecederos.create', compact('productos', 'disponibilidades'));
+        return view('admin.productosperecederos.create', compact('productos', 'disponibilidades'));
     }
 
     public function store(Request $request)
