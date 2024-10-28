@@ -119,13 +119,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/home/detalles_pedidos">
-                    <i class="bx bx-box"></i>
-                    <span>Detalles Pedidos</span>
-                </a>
-            </li>
-
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
 

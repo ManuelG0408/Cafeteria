@@ -32,4 +32,9 @@ class Pedidos extends Model
     {
         return $this->belongsTo(EstadosPedidos::class, 'id_estado_pedido', 'id_estado_pedido');
     }
+
+    public function detalles()
+    {
+        return $this->hasMany(DetallesPedidos::class, 'id_pedido', 'id_pedido');
+    }
 }

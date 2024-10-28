@@ -39,7 +39,7 @@
                         <a href="{{ route('pedidos.edit', $pedido->id_pedido) }}" class="btn btn-warning">Editar</a>
                     @endrole
 
-                        <a href="{{ route('pedidos.edit', $pedido->id_pedido) }}" class="btn btn-info">Detalles</a>
+                    <a href="{{ route('pedidos.detalles', $pedido->id_pedido) }}" class="btn btn-info">Detalles</a>
 
 
                     @unlessrole('admin')

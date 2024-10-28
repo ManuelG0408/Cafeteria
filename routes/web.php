@@ -78,3 +78,5 @@ Route::patch('/home/carrito/actualizar/{id}', [CarritoController::class, 'actual
 Route::get('/home/carrito', [CarritoController::class, 'verCarrito'])->name('carrito.ver');
 Route::post('/home/carrito/vaciar', [CarritoController::class, 'vaciarCarrito'])->name('carrito.vaciar');
 Route::post('/home/pedidos', [CarritoController::class, 'realizarPedido'])->name('pedidos.realizar');
+Route::get('/home/pedidos/{pedido}/detalles', [DetallesPedidosController::class, 'show'])->name('pedidos.detalles');
+
