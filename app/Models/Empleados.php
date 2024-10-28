@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
 class Empleados extends Model
 {
-    use HasFactory;
+    use HasFactory, HasRoles;
 
     protected $table = 'empleados';
 

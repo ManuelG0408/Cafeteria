@@ -34,6 +34,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <!-- Enlace al carrito de compras -->
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home/carrito">
+                                <i class="fas fa-shopping-cart"></i> Carrito
+                                @if(isset($carritoCount) && $carritoCount > 0)
+                                    <span class="badge bg-danger">{{ $carritoCount }}</span>
+                                @endif
+                            </a>
+                        </li>
+                        @endauth
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -48,7 +60,6 @@
                                 </li>
                             @endif
                         @else
-                            
                             <!-- Dropdown para cerrar sesión -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -83,5 +94,8 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Cargar FontAwesome para el ícono del carrito -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

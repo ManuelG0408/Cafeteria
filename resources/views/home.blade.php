@@ -119,6 +119,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="/home/detalles_pedidos">
+                    <i class="bx bx-box"></i>
+                    <span>Detalles Pedidos</span>
+                </a>
+            </li>
+
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
 
@@ -131,6 +138,7 @@
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">¡Bienvenido!</h1>
+
                     </div>
                 </div>
 

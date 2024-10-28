@@ -29,8 +29,17 @@
 
                         @unlessrole('admin')
                             <div class="d-flex justify-content-center p-3">
-                                <button type="submit" class="btn btn-success me-3">Comprar</button>
-                                <button type="submit" class="btn btn-primary ">Agregar</button>
+                                <!-- Botón de Comprar -->
+                                <form action="{{ route('carrito.agregar', $productoPerecedero->producto->id_producto) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Comprar</button>
+                                </form>
+
+                                <!-- Botón de Agregar al Carrito con margen a la izquierda -->
+                                <form action="{{ route('carrito.agregar', $productoPerecedero->producto->id_producto) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary ms-3">Agregar</button>
+                                </form>
                             </div>
                         @endunless
 

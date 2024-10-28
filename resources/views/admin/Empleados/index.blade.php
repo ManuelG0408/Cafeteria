@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container mt-5 mb-5">
-    <h1>Empleados</h1>
-
+    <h1>Empleados</h1> 
+    
     @if(Session::has('message'))
         <div class="alert alert-success" role="alert">
             {{ Session::get('message') }}

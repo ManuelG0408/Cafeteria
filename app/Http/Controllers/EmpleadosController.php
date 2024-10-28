@@ -25,18 +25,28 @@ class EmpleadosController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'id_usuario' => 'required|exists:users,id',
-            'id_puesto' => 'required|exists:puestos,id_puesto',
-            'fecha_contrato' => 'required|date',
-            'salario' => 'required|numeric',
-        ]);
+{
+    // Validar los datos del empleado
+    $request->validate([
+        'id_usuario' => 'required|exists:users,id',
+        'id_puesto' => 'required|exists:puestos,id_puesto',
+        'fecha_contrato' => 'required|date',
+        'salario' => 'required|numeric',
+    ]);
 
-        Empleados::create($request->all());
+    // Crear el empleado
+    $empleado = Empleados::create($request->all());
 
-        return redirect()->route('empleados.index')->with('success', 'Empleado creado con éxito.');
-    }
+    // Obtener el usuario asociado
+    $usuario = User::find($request->id_usuario);
+
+    // Asignar el rol "empleado" al usuario
+    $usuario->assignRole('empleado');  // Asegúrate de que 'empleado' es el nombre correcto del rol
+
+    return redirect()->route('empleados.index')->with('success', 'Empleado creado con éxito.');
+}
+
+
 
     public function edit(Empleados $empleado)
     {

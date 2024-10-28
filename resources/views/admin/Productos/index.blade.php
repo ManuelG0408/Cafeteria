@@ -17,7 +17,7 @@
         @foreach($productos as $producto)
         <div class="col-md-3 mb-2">
             <div class="card h-100" style="max-width: 250px;">
-   
+
                 @if($producto->imagen)
                 <img src="{{ asset('storage/imagenes/' . $producto->imagen) }}" class="card-img-top" alt="{{ $producto->nom_producto }}" style="height: 250px; object-fit: cover;">
                 @else
@@ -35,10 +35,20 @@
 
                 @unlessrole('admin')
                     <div class="d-flex justify-content-center p-3">
-                        <button type="submit" class="btn btn-success me-3">Comprar</button>
-                        <button type="submit" class="btn btn-primary ">Agregar</button>
+                        <!-- Botón de Comprar -->
+                        <form action="{{ route('carrito.agregar', $producto->id_producto) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-success">Comprar</button>
+                        </form>
+
+                        <!-- Botón de Agregar al Carrito con margen a la izquierda -->
+                        <form action="{{ route('carrito.agregar', $producto->id_producto) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary ms-3">Agregar</button>
+                        </form>
                     </div>
                 @endunless
+
 
                 @role('admin')
                     <div class="text-center p-3">

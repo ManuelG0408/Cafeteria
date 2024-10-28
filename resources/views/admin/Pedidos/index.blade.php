@@ -30,17 +30,25 @@
                 <tr>
                     <td>{{ $pedido->id_pedido }}</td>
                     <td>{{ $pedido->fecha_pedido }}</td>
-                    <td>{{ $pedido->cliente->nombre }} {{ $pedido->cliente->apellido_paterno }}</td>
-                    <td>{{ $pedido->estadoPedido->nombre }}</td>
+                    <td>{{ $pedido->cliente->usuario->nombre }} {{ $pedido->cliente->usuario->apellido_paterno }} {{ $pedido->cliente->usuario->apellido_materno }}</td>
+                    <td>{{ $pedido->estadoPedido->desc_estado_pedido }}</td>
                     <td>{{ $pedido->total }}</td>
                     <td>{{ $pedido->comentarios }}</td>
                     <td>
+                    @role('admin')
                         <a href="{{ route('pedidos.edit', $pedido->id_pedido) }}" class="btn btn-warning">Editar</a>
+                    @endrole
+
+                        <a href="{{ route('pedidos.edit', $pedido->id_pedido) }}" class="btn btn-info">Detalles</a>
+
+
+                    @unlessrole('admin')
                         <form action="{{ route('pedidos.destroy', $pedido->id_pedido) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
+                    @endunless
                     </td>
                 </tr>
             @endforeach

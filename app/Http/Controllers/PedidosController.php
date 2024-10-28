@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Pedidos;
 use App\Models\Clientes;
 use App\Models\EstadosPedidos;
+use Carbon\Carbon;
 
 class PedidosController extends Controller
 {
     public function index()
     {
 
-        $pedidos = Pedidos::all(); // Obtener todos los usuarios
-        return view('admin.pedidos.index', [ // Asegúrate de usar la notación de puntos
-            'pedidos' => $pedidos // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
+        $pedidos = Pedidos::all(); 
+        return view('admin.pedidos.index', [ 
+            'pedidos' => $pedidos 
 
         ]);
     }
@@ -41,25 +42,31 @@ class PedidosController extends Controller
         return redirect()->route('pedidos.index')->with('message', 'Pedido creado exitosamente.');
     }
 
-    public function edit(Pedidos $pedido)
+    public function edit($id)
     {
-        return view('pedidos.edit', compact('pedido'));
+        $pedido = Pedidos::findOrFail($id);
+        
+        // Convierte a Carbon si es necesario
+        $pedido->fecha_pedido = Carbon::parse($pedido->fecha_pedido);
+        
+        $clientes = Clientes::all(); // Asegúrate de tener la lista de clientes
+        $estados = EstadosPedidos::all(); // Asegúrate de tener la lista de estados
+
+        return view('admin.pedidos.edit', compact('pedido', 'clientes', 'estados'));
     }
 
     public function update(Request $request, Pedidos $pedido)
-    {
-        $request->validate([
-            'fecha_pedido' => 'required|date',
-            'id_cliente' => 'required|exists:clientes,id_cliente',
-            'id_estado_pedido' => 'required|exists:estados_pedidos,id_estado_pedido',
-            'total' => 'required|numeric|min:0',
-            'comentarios' => 'nullable|string|max:255',
-        ]);
+{
+    $request->validate([
+        'id_estado_pedido' => 'required|exists:estados_pedidos,id_estado_pedido',
+    ]);
 
-        $pedido->update($request->all());
+    // Solo actualiza el estado del pedido
+    $pedido->update(['id_estado_pedido' => $request->id_estado_pedido]);
 
-        return redirect()->route('pedidos.index')->with('message', 'Pedido actualizado exitosamente.');
-    }
+    return redirect()->route('pedidos.index')->with('message', 'Estado del pedido actualizado exitosamente.');
+}
+
 
     public function destroy(Pedidos $pedido)
     {

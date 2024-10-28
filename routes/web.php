@@ -18,6 +18,7 @@ use App\Http\Controllers\EntradasController;
 use App\Http\Controllers\DetallesPedidosController;
 use App\Http\Controllers\AsignaExtrasPedidosController;
 use App\Http\Controllers\ProductosNoPerecederosController;
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 
@@ -69,3 +70,11 @@ Route::get('producto/imagen/{filename}', function ($filename) {
 // Ruta de perfil
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 
+
+
+Route::post('/home/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+Route::delete('/home/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+Route::patch('/home/carrito/actualizar/{id}', [CarritoController::class, 'actualizar'])->name('carrito.actualizar');
+Route::get('/home/carrito', [CarritoController::class, 'verCarrito'])->name('carrito.ver');
+Route::post('/home/carrito/vaciar', [CarritoController::class, 'vaciarCarrito'])->name('carrito.vaciar');
+Route::post('/home/pedidos', [CarritoController::class, 'realizarPedido'])->name('pedidos.realizar');
