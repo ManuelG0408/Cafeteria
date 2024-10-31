@@ -32,22 +32,20 @@ class DisponibilidadesController extends Controller
 
     public function edit($id)
     {
-        // Cambia 'disponibilidades' a 'disponibilidad'
+        
         $disponibilidad = Disponibilidades::findOrFail($id);
         return view('admin.disponibilidades.edit', compact('disponibilidad'));
     }
 
     public function update(Request $request, $id)
     {
-        // Encuentra la disponibilidad por ID
+        
         $disponibilidad = Disponibilidades::findOrFail($id);
-
-        // Validar la solicitud
         $request->validate([
             'desc_disponibilidad' => 'required|string|max:255',
         ]);
 
-        // Actualizar la disponibilidad
+    
         $disponibilidad->update($request->all());
 
         return redirect()->route('disponibilidades.index')->with('success', 'Disponibilidad actualizada con éxito.');
@@ -55,10 +53,7 @@ class DisponibilidadesController extends Controller
 
     public function destroy($id)
     {
-        // Encuentra la disponibilidad por ID
         $disponibilidad = Disponibilidades::findOrFail($id);
-
-        // Eliminar la disponibilidad
         $disponibilidad->delete();
 
         return redirect()->route('disponibilidades.index')->with('success', 'Disponibilidad eliminada con éxito.');
