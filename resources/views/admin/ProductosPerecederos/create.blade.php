@@ -19,7 +19,7 @@
             <label for="id_disponibilidad">Disponibilidad</label>
             <select name="id_disponibilidad" id="id_disponibilidad" class="form-control">
                 @foreach($disponibilidades as $disponibilidad)
-                    <option value="{{ $disponibilidad->id_disponibilidad }}">{{ $disponibilidad->descripcion }}</option>
+                    <option value="{{ $disponibilidad->id_disponibilidad }}">{{ $disponibilidad->desc_disponibilidad }}</option>
                 @endforeach
             </select>
         </div>

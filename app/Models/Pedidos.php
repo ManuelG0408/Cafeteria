@@ -37,4 +37,9 @@ class Pedidos extends Model
     {
         return $this->hasMany(DetallesPedidos::class, 'id_pedido', 'id_pedido');
     }
+
+    public function extras()
+    {
+        return $this->belongsToMany(Extras::class, 'asigna_extras_pedidos', 'id_pedido', 'id_extra');
+    }
 }

@@ -28,8 +28,10 @@
             @foreach($entradas as $entrada)
                 <tr>
                     <td>{{ $entrada->id_entrada }}</td>
-                    <td>{{ $entrada->proveedor->nombre }}</td>
-                    <td>{{ $entrada->producto->nombre }}</td>
+                    <td>
+                        {{ $entrada->proveedores ? $entrada->proveedores->usuario->nombre . ' ' . $entrada->proveedores->usuario->apellido_paterno . ' ' . $entrada->proveedores->usuario->apellido_materno : 'Proveedor no disponible' }}
+                    </td>
+                    <td>{{ $entrada->producto->nom_producto }}</td>
                     <td>{{ $entrada->cantidad }}</td>
                     <td>{{ $entrada->precio_compra }}</td>
                     <td>{{ $entrada->fecha_entrada }}</td>

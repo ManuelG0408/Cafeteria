@@ -21,8 +21,9 @@ class ProovedoresController extends Controller
     // Mostrar formulario para crear un nuevo proveedor
     public function create()
     {
-        $usuarios = User::all(); // Obtener todos los usuarios
-        return view('admin.proovedores.create', compact('usuarios'));
+        $usuarios = User::all();
+        $proovedores = Proovedores::all();
+        return view('admin.proovedores.create', compact('usuarios','proovedores'));
     }
 
 
