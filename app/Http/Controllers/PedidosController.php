@@ -46,11 +46,11 @@ class PedidosController extends Controller
     {
         $pedido = Pedidos::findOrFail($id);
         
-        // Convierte a Carbon si es necesario
+        
         $pedido->fecha_pedido = Carbon::parse($pedido->fecha_pedido);
         
-        $clientes = Clientes::all(); // Asegúrate de tener la lista de clientes
-        $estados = EstadosPedidos::all(); // Asegúrate de tener la lista de estados
+        $clientes = Clientes::all(); 
+        $estados = EstadosPedidos::all(); 
 
         return view('admin.pedidos.edit', compact('pedido', 'clientes', 'estados'));
     }
@@ -61,7 +61,7 @@ class PedidosController extends Controller
         'id_estado_pedido' => 'required|exists:estados_pedidos,id_estado_pedido',
     ]);
 
-    // Solo actualiza el estado del pedido
+    
     $pedido->update(['id_estado_pedido' => $request->id_estado_pedido]);
 
     return redirect()->route('pedidos.index')->with('message', 'Estado del pedido actualizado exitosamente.');

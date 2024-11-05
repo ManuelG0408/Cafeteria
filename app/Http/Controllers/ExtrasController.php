@@ -15,13 +15,13 @@ class ExtrasController extends Controller
         ]);
     }
     
-    // Mostrar formulario para crear un nuevo extra
+    
     public function create()
     {
         return view('admin.extras.create');
     }
 
-    // Almacenar el nuevo extra
+   
     public function store(Request $request)
     {
         $request->validate([
@@ -33,14 +33,14 @@ class ExtrasController extends Controller
         return redirect()->route('extras.index')->with('success', 'Extra creado con éxito');
     }
 
-    // Mostrar formulario para editar un extra
+    
     public function edit($id)
     {
         $extra = Extras::findOrFail($id);
         return view('admin.extras.edit', compact('extra'));
     }
 
-    // Actualizar el extra
+    
     public function update(Request $request, $id)
     {
         $extra = Extras::findOrFail($id);
@@ -54,7 +54,7 @@ class ExtrasController extends Controller
         return redirect()->route('extras.index')->with('success', 'Extra actualizado con éxito');
     }
 
-    // Eliminar un extra
+    
     public function destroy($id)
     {
         $extra = Extras::findOrFail($id);

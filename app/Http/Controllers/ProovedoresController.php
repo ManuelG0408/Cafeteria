@@ -11,22 +11,22 @@ class ProovedoresController extends Controller
     public function index()
     {
 
-        $proovedores = Proovedores::all(); // Obtener todos los usuarios
-        return view('admin.proovedores.index', [ // Asegúrate de usar la notación de puntos
-            'proovedores' => $proovedores // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
+        $proovedores = Proovedores::all(); 
+        return view('admin.proovedores.index', [ 
+            'proovedores' => $proovedores
 
         ]);
     }
 
-    // Mostrar formulario para crear un nuevo proveedor
+    
     public function create()
     {
-        $usuarios = User::all(); // Obtener todos los usuarios
+        $usuarios = User::all(); 
         return view('admin.proovedores.create', compact('usuarios'));
     }
 
 
-    // Almacenar el nuevo proveedor
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -39,16 +39,16 @@ class ProovedoresController extends Controller
         return redirect()->route('proovedores.index')->with('success', 'Proveedor creado con éxito');
     }
 
-    // Mostrar formulario para editar un proveedor
+    
         public function edit($id)
     {
         $proovedor = Proovedores::findOrFail($id);
-        $usuarios = User::all(); // Obtener todos los usuarios
+        $usuarios = User::all(); 
         return view('admin.proovedores.edit', compact('proovedor', 'usuarios'));
     }
 
 
-    // Actualizar el proveedor
+    
     public function update(Request $request, $id)
     {
         $proovedor = Proovedores::findOrFail($id);
@@ -63,7 +63,7 @@ class ProovedoresController extends Controller
         return redirect()->route('proovedores.index')->with('success', 'Proveedor actualizado con éxito');
     }
 
-    // Eliminar un proveedor
+    
     public function destroy($id)
     {
         $proovedor = Proovedores::findOrFail($id);

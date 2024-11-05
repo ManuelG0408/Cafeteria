@@ -8,65 +8,65 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
-    // Mostrar una lista de usuarios
+    
     public function index()
     {
-        $usuarios = Usuarios::all(); // Obtener todos los usuarios
-        return view('admin.usuarios.index', [ // Asegúrate de usar la notación de puntos
-            'usuarios' => $usuarios // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
+        $usuarios = Usuarios::all(); 
+        return view('admin.usuarios.index', [ 
+            'usuarios' => $usuarios 
         ]);
     }
 
-    // Crear un nuevo usuario
+    
     public function store(Request $request)
     {
-        // Validar la solicitud
+        
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'nullable|string|max:255',
             'telefono' => 'required|string|max:15',
-            'email' => 'required|string|email|max:255|unique:users', // Asegúrate que la tabla se llame 'users'
+            'email' => 'required|string|email|max:255|unique:users', 
             'password' => 'required|string|min:8',
         ]);
 
-        // Crear el usuario
+        
         $usuario = Usuarios::create([
             'nombre' => $request->nombre,
             'apellido_paterno' => $request->apellido_paterno,
             'apellido_materno' => $request->apellido_materno,
             'telefono' => $request->telefono,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // Encriptar la contraseña
+            'password' => Hash::make($request->password), 
         ]);
 
-        return response()->json($usuario, 201); // Retornar el usuario creado con un código 201
+        return response()->json($usuario, 201); 
     }
 
-    // Actualizar un usuario
+    
     public function update(Request $request, $id)
     {
-        // Validar la solicitud
+        
         $request->validate([
             'nombre' => 'sometimes|required|string|max:255',
             'apellido_paterno' => 'sometimes|required|string|max:255',
             'apellido_materno' => 'nullable|string|max:255',
             'telefono' => 'sometimes|required|string|max:15',
-            'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $id, // Excluyendo el propio ID
+            'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $id, 
             'password' => 'sometimes|nullable|string|min:8',
         ]);
 
-        $usuario = Usuarios::findOrFail($id); // Encontrar el usuario
-        $usuario->update($request->all()); // Actualizar los campos del usuario
+        $usuario = Usuarios::findOrFail($id); 
+        $usuario->update($request->all()); 
 
-        // Actualizar la contraseña si se proporciona
+        
         if ($request->password) {
             $usuario->update([
                 'password' => Hash::make($request->password),
             ]);
         }
 
-        return response()->json($usuario); // Retornar el usuario actualizado
+        return response()->json($usuario); 
     }
 
     public function destroy($id)

@@ -52,18 +52,18 @@ class CarritoController extends Controller
 
     public function realizarPedido(Request $request)
 {
-    // Suponiendo que tienes un estado "pendiente" con un ID conocido
-    $estadoPendienteId = 1; // Cambia esto al ID real del estado "pendiente"
+    
+    $estadoPendienteId = 1; 
 
     $pedido = new Pedidos();
     $pedido->fecha_pedido = now();
     $pedido->id_cliente = auth()->id(); 
     $pedido->total = $this->calcularTotal();
 
-    // Asigna un valor por defecto a comentarios
+    
     $pedido->comentarios = $request->input('comentarios', 'Sin comentarios');
 
-    // Asignar estado pendiente
+    
     $pedido->id_estado_pedido = $estadoPendienteId; 
     $pedido->save();
 
@@ -86,7 +86,7 @@ class CarritoController extends Controller
 
     public function vaciarCarrito()
     {
-        // Elimina todos los productos del carrito
+        
         session()->forget('carrito');
 
         return redirect()->back()->with('success', 'El carrito ha sido vaciado.');

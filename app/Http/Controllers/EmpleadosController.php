@@ -26,7 +26,7 @@ class EmpleadosController extends Controller
 
     public function store(Request $request)
 {
-    // Validar los datos del empleado
+    
     $request->validate([
         'id_usuario' => 'required|exists:users,id',
         'id_puesto' => 'required|exists:puestos,id_puesto',
@@ -34,14 +34,14 @@ class EmpleadosController extends Controller
         'salario' => 'required|numeric',
     ]);
 
-    // Crear el empleado
+    
     $empleado = Empleados::create($request->all());
 
-    // Obtener el usuario asociado
+    
     $usuario = User::find($request->id_usuario);
 
-    // Asignar el rol "empleado" al usuario
-    $usuario->assignRole('empleado');  // Asegúrate de que 'empleado' es el nombre correcto del rol
+    
+    $usuario->assignRole('empleado');  
 
     return redirect()->route('empleados.index')->with('success', 'Empleado creado con éxito.');
 }

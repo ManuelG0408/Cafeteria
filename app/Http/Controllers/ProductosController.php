@@ -11,9 +11,9 @@ class ProductosController extends Controller
     public function index()
     {
 
-        $productos = Productos::all(); // Obtener todos los usuarios
-        return view('admin.productos.index', [ // Asegúrate de usar la notación de puntos
-            'productos' => $productos // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
+        $productos = Productos::all(); 
+        return view('admin.productos.index', [ 
+            'productos' => $productos 
 
         ]);
     }
@@ -25,7 +25,7 @@ class ProductosController extends Controller
         return view('admin.productos.create', compact('categorias'));
     }
 
-    // Almacenar el nuevo producto
+   
     public function store(Request $request)
     {
         $request->validate([
@@ -47,7 +47,7 @@ class ProductosController extends Controller
         return redirect()->route('productos.index')->with('success', 'Producto creado con éxito');
     }
 
-    // Mostrar formulario de edición
+    
     public function edit($id)
     {
         $producto = Productos::findOrFail($id);
@@ -70,16 +70,16 @@ class ProductosController extends Controller
     $data = $request->all();
     
     if ($request->hasFile('imagen')) {
-        // Elimina la imagen antigua si existe
+        
         if ($producto->imagen) {
             $oldImagePath = storage_path('app/public/imagenes/' . $producto->imagen);
             if (file_exists($oldImagePath)) {
-                unlink($oldImagePath); // Elimina la imagen anterior
+                unlink($oldImagePath); 
             }
         }
 
-        $path = $request->file('imagen')->store('public/imagenes'); // Corrige el directorio aquí
-        $data['imagen'] = basename($path); // Actualiza con la nueva imagen
+        $path = $request->file('imagen')->store('public/imagenes'); 
+        $data['imagen'] = basename($path); 
     }
 
     $producto->update($data);

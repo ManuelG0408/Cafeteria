@@ -12,9 +12,9 @@ class EntradasController extends Controller
     public function index()
     {
 
-        $entradas = Entradas::all(); // Obtener todos los usuarios
-        return view('admin.entradas.index', [ // Asegúrate de usar la notación de puntos
-            'entradas' => $entradas  // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
+        $entradas = Entradas::all(); 
+        return view('admin.entradas.index', [ 
+            'entradas' => $entradas  
 
         ]);
     }

@@ -7,7 +7,7 @@ use App\Models\EstadosPedidos;
 
 class EstadosPedidosController extends Controller
 {
-    // Mostrar lista de estados de pedidos
+    
     public function index()
     {
         $estados_pedidos = EstadosPedidos::all();
@@ -16,13 +16,13 @@ class EstadosPedidosController extends Controller
         ]);
     }
 
-    // Mostrar formulario de creación
+    
     public function create()
     {
         return view('admin.estadospedidos.create');
     }
 
-    // Almacenar un nuevo estado de pedido
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -33,14 +33,14 @@ class EstadosPedidosController extends Controller
         return redirect()->route('estados_pedidos.index')->with('success', 'Estado de pedido creado con éxito');
     }
 
-    // Mostrar formulario de edición
+    
     public function edit($id)
     {
         $estadoPedido = EstadosPedidos::findOrFail($id);
         return view('admin.estadospedidos.edit', compact('estadoPedido'));
     }
 
-    // Actualizar un estado de pedido
+    
     public function update(Request $request, $id)
     {
         $estadoPedido = EstadosPedidos::findOrFail($id);

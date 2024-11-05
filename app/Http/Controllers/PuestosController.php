@@ -15,13 +15,13 @@ class PuestosController extends Controller
         ]);
     }
     
-    // Mostrar formulario para crear un nuevo puesto
+    
     public function create()
     {
         return view('admin.puestos.create');
     }
 
-    // Almacenar el nuevo puesto
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -32,14 +32,14 @@ class PuestosController extends Controller
         return redirect()->route('puestos.index')->with('success', 'Puesto creado con éxito');
     }
 
-    // Mostrar formulario para editar un puesto
+    
     public function edit($id)
     {
         $puesto = Puestos::findOrFail($id);
         return view('admin.puestos.edit', compact('puesto'));
     }
 
-    // Actualizar el puesto
+    
     public function update(Request $request, $id)
     {
         $puesto = Puestos::findOrFail($id);
@@ -52,7 +52,7 @@ class PuestosController extends Controller
         return redirect()->route('puestos.index')->with('success', 'Puesto actualizado con éxito');
     }
 
-    // Eliminar un puesto
+    
     public function destroy($id)
     {
         $puesto = Puestos::findOrFail($id);

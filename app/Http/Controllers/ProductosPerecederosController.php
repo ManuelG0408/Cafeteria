@@ -11,9 +11,9 @@ class ProductosPerecederosController extends Controller
     public function index()
     {
 
-        $productos_perecederos = ProductosPerecederos::all(); // Obtener todos los usuarios
-        return view('admin.productosperecederos.index', [ // Asegúrate de usar la notación de puntos
-            'productos_perecederos' => $productos_perecederos // Cambié 'personas' a 'usuarios' para reflejar mejor el contenido
+        $productos_perecederos = ProductosPerecederos::all(); 
+        return view('admin.productosperecederos.index', [ 
+            'productos_perecederos' => $productos_perecederos 
 
         ]);
     }
@@ -39,9 +39,9 @@ class ProductosPerecederosController extends Controller
 
     public function edit($id)
     {
-        $productoPerecedero = ProductosPerecederos::findOrFail($id); // Asegúrate de que esta línea se ejecute sin errores.
-        $productos = Productos::all(); // Obtener todos los productos
-        $disponibilidades = Disponibilidades::all(); // Obtener todas las disponibilidades
+        $productoPerecedero = ProductosPerecederos::findOrFail($id);  errores.
+        $productos = Productos::all(); 
+        $disponibilidades = Disponibilidades::all(); 
 
         return view('admin.productosperecederos.edit', compact('productoPerecedero', 'productos', 'disponibilidades'));
     }
