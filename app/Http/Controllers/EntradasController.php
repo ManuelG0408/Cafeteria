@@ -11,11 +11,17 @@ class EntradasController extends Controller
 {
     public function index()
     {
+        $entradas = Entradas::with(['proveedores.usuario', 'producto'])->get(); 
 
+<<<<<<< HEAD
         $entradas = Entradas::all(); 
         return view('admin.entradas.index', [ 
             'entradas' => $entradas  
 
+=======
+        return view('admin.entradas.index', [
+            'entradas' => $entradas
+>>>>>>> 6184523d737de267b9cba7572dbcae80158a983a
         ]);
     }
 
@@ -23,7 +29,8 @@ class EntradasController extends Controller
     {
         $proovedores = Proovedores::all();
         $productos = Productos::all();
-        return view('admin.entradas.create', compact('proovedores', 'productos'));
+        $proovedores = Proovedores::all();
+        return view('admin.entradas.create', compact('proovedores', 'productos','proovedores'));
     }
 
     public function store(Request $request)
@@ -43,9 +50,9 @@ class EntradasController extends Controller
 
     public function edit(Entradas $entrada)
     {
-        $proveedores = Proovedores::all();
+        $proovedores = Proovedores::all();
         $productos = Productos::all();
-        return view('entradas.edit', compact('entrada', 'proovedores', 'productos'));
+        return view('admin.entradas.edit', compact('entrada', 'proovedores', 'productos'));
     }
 
     public function update(Request $request, Entradas $entrada)

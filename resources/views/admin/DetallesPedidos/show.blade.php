@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h1>Detalles del Pedido ID: {{ $pedido->id_pedido }}</h1>
+    <h1>Detalles del Pedido </h1>
 
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Id Pedido</th>
                 <th>Descripción Producto</th>
                 <th>Cantidad</th>
                 <th>Subtotal</th>
@@ -15,7 +16,8 @@
         <tbody>
             @foreach($detalles as $detalle)
                 <tr>
-                    <td>{{ $detalle->producto->desc_producto }}</td> <!-- Descripción del producto -->
+                    <td>{{ $detalle->pedido->id_pedido }}</td>
+                    <td>{{ $detalle->producto->desc_producto }}</td> 
                     <td>{{ $detalle->cantidad }}</td>
                     <td>{{ $detalle->subtotal }}</td>
                 </tr>

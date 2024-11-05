@@ -12,7 +12,7 @@
             <select class="form-select" id="id_proovedor" name="id_proovedor" required>
                 <option value="">Seleccionar Proveedor</option>
                 @foreach($proovedores as $proveedor)
-                    <option value="{{ $proveedor->id_proovedor }}">{{ $proveedor->nombre }}</option>
+                    <option value="{{ $proveedor->id_proovedor }}">{{ $proveedor->usuario->nombre }} {{ $proveedor->usuario->apellido_paterno }} {{ $proveedor->usuario->apellido_materno }}</option>
                 @endforeach
             </select>
         </div>

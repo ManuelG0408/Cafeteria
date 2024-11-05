@@ -30,7 +30,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Rutas de recursos
 Route::resource('/home/usuarios', UsuariosController::class);
 Route::resource('/home/clientes', ClientesController::class);
 Route::resource('/home/tipos_clientes', TiposClientesController::class);
@@ -49,8 +48,6 @@ Route::resource('/home/detalles_pedidos', DetallesPedidosController::class);
 Route::resource('/home/asigna_extras_pedidos', AsignaExtrasPedidosController::class);
 Route::resource('/home/productos_no_perecederos', ProductosNoPerecederosController::class);
 
-
-// Ruta para mostrar las imágenes de los productos
 Route::get('producto/imagen/{filename}', function ($filename) {
     $path = storage_path('app/private/public/imagenes/' . $filename);
 
@@ -67,10 +64,7 @@ Route::get('producto/imagen/{filename}', function ($filename) {
     return $response;
 });
 
-// Ruta de perfil
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
-
-
 
 Route::post('/home/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
 Route::delete('/home/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');

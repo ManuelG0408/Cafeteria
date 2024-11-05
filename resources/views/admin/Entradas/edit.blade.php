@@ -11,9 +11,9 @@
         <div class="mb-3">
             <label for="id_proovedor" class="form-label">Proveedor</label>
             <select class="form-select" id="id_proovedor" name="id_proovedor" required>
-                @foreach($proveedores as $proveedor)
+                @foreach($proovedores as $proveedor)
                     <option value="{{ $proveedor->id_proovedor }}" {{ $entrada->id_proovedor == $proveedor->id_proovedor ? 'selected' : '' }}>
-                        {{ $proveedor->nombre }}
+                        {{ $proveedor->usuario->nombre}} {{ $proveedor->usuario->apellido_paterno}} {{ $proveedor->usuario->apellido_materno}}
                     </option>
                 @endforeach
             </select>
@@ -24,7 +24,7 @@
             <select class="form-select" id="id_producto" name="id_producto" required>
                 @foreach($productos as $producto)
                     <option value="{{ $producto->id_producto }}" {{ $entrada->id_producto == $producto->id_producto ? 'selected' : '' }}>
-                        {{ $producto->nombre }}
+                        {{ $producto->nom_producto }}
                     </option>
                 @endforeach
             </select>

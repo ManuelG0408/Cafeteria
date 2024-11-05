@@ -22,7 +22,7 @@ class Entradas extends Model
     ];
 
     // Relaciones
-    public function proveedor()
+    public function proveedores()
     {
         return $this->belongsTo(Proovedores::class, 'id_proovedor');
     }

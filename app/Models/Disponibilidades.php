@@ -9,10 +9,10 @@ class Disponibilidades extends Model
 {
     use HasFactory;
 
-    protected $table = 'disponibilidades'; // Nombre de la tabla
-    protected $primaryKey = 'id_disponibilidad'; // Clave primaria
+    protected $table = 'disponibilidades';
+    protected $primaryKey = 'id_disponibilidad'; 
 
     protected $fillable = [
-        'desc_disponibilidad', // Campos que se pueden llenar
+        'desc_disponibilidad', 
     ];
 }

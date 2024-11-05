@@ -21,8 +21,14 @@ class ProovedoresController extends Controller
     
     public function create()
     {
+<<<<<<< HEAD
         $usuarios = User::all(); 
         return view('admin.proovedores.create', compact('usuarios'));
+=======
+        $usuarios = User::all();
+        $proovedores = Proovedores::all();
+        return view('admin.proovedores.create', compact('usuarios','proovedores'));
+>>>>>>> 6184523d737de267b9cba7572dbcae80158a983a
     }
 
 

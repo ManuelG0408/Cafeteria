@@ -26,9 +26,9 @@
             @foreach($detalles as $detalle)
                 <tr>
                     <td>{{ $detalle->id_detalle_pedido }}</td>
-                    <td>{{ $detalle->pedido->id_pedido }}</td> <!-- Muestra el ID del pedido -->
-                    <td>{{ $detalle->producto->id_producto }}</td> <!-- Muestra el ID del producto -->
-                    <td>{{ $detalle->producto->desc_producto }}</td> <!-- Descripción del producto -->
+                    <td>{{ $detalle->pedido->id_pedido }}</td> 
+                    <td>{{ $detalle->producto->id_producto }}</td> 
+                    <td>{{ $detalle->producto->desc_producto }}</td>
                     <td>{{ $detalle->cantidad }}</td>
                     <td>{{ $detalle->subtotal }}</td>
                     <td>
