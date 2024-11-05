@@ -9,12 +9,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('productos_perecederos', function (Blueprint $table) {
-            $table->id('id_productoperecedero'); // ID del cliente
-            $table->unsignedBigInteger('id_producto'); // ID del usuario asociado
+            $table->id('id_productoperecedero'); 
+            $table->unsignedBigInteger('id_producto'); 
             $table->unsignedBigInteger('id_disponibilidad'); 
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
-            // Claves foráneas
+            
             $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
             $table->foreign('id_disponibilidad')->references('id_disponibilidad')->on('disponibilidades')->onDelete('cascade');
         });

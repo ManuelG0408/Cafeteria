@@ -9,8 +9,8 @@ class CreateTiposClientesTable extends Migration
     public function up()
     {
         Schema::create('tipos_clientes', function (Blueprint $table) {
-            $table->id('id_tipo_cliente'); // ID del cliente
-            $table->string('desc_tipo_cliente'); // Descripción del tipo de cliente
+            $table->id('id_tipo_cliente'); 
+            $table->string('desc_tipo_cliente'); 
 
             $table->timestamps();
 

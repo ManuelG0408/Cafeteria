@@ -9,12 +9,12 @@ return new class extends Migration
     public function up()
 {
     Schema::create('productos', function (Blueprint $table) {
-        $table->id('id_producto'); // ID del producto
+        $table->id('id_producto'); 
         $table->string('nom_producto')->unique();
         $table->string('desc_producto');
         $table->decimal('precio', 8, 2);
-        $table->unsignedBigInteger('id_categoria'); // Relación con categoría
-        $table->string('imagen')->nullable(); // Columna para la imagen del producto
+        $table->unsignedBigInteger('id_categoria'); 
+        $table->string('imagen')->nullable(); 
         $table->timestamps();
 
         // Clave foránea

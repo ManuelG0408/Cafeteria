@@ -9,14 +9,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proovedores', function (Blueprint $table) {
-            $table->id('id_proovedor'); // ID del cliente
-            $table->unsignedBigInteger('id_usuario'); // ID del usuario asociado
+            $table->id('id_proovedor'); 
+            $table->unsignedBigInteger('id_usuario'); 
             $table->string('empresa');
             $table->string('rfc')->unique();
             
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
-            // Claves foráneas
+            
             $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
     
         });

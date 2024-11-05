@@ -9,16 +9,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id('id_pedido'); // ID del cliente
+            $table->id('id_pedido'); 
             $table->date('fecha_pedido');
-            $table->unsignedBigInteger('id_cliente'); // ID del usuario asociado
-            $table->unsignedBigInteger('id_estado_pedido'); // ID del tipo de cliente
+            $table->unsignedBigInteger('id_cliente'); 
+            $table->unsignedBigInteger('id_estado_pedido'); 
             $table->decimal('total');
             $table->string('comentarios');
 
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
-            // Claves foráneas
+            
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
             $table->foreign('id_estado_pedido')->references('id_estado_pedido')->on('estados_pedidos')->onDelete('cascade');
         });

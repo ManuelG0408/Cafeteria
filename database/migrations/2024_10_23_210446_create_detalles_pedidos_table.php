@@ -9,12 +9,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detalles_pedidos', function (Blueprint $table) {
-            $table->id('id_detalle_pedido'); // ID del cliente
+            $table->id('id_detalle_pedido'); 
             $table->unsignedBigInteger('id_pedido'); 
-            $table->unsignedBigInteger('id_producto'); // ID del usuario asociado
+            $table->unsignedBigInteger('id_producto'); 
             $table->integer('cantidad');
             $table->decimal('subtotal',8,2);
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
             // Claves foráneas
             $table->foreign('id_pedido')->references('id_pedido')->on('pedidos')->onDelete('cascade');

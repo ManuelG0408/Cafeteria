@@ -13,9 +13,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_producto'); 
             $table->integer('existencia');
             $table->date('fecha_expiracion');
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
-            // Claves foráneas
+            
             $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
         });
     }

@@ -9,11 +9,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('asigna_extras_pedidos', function (Blueprint $table) {
-            $table->id('id_asigna_extra_pedido'); // ID del cliente
+            $table->id('id_asigna_extra_pedido'); 
             $table->unsignedBigInteger('id_pedido'); 
-            $table->unsignedBigInteger('id_extra'); // ID del usuario asociado
+            $table->unsignedBigInteger('id_extra'); 
            
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
             // Claves foráneas
             $table->foreign('id_pedido')->references('id_pedido')->on('pedidos')->onDelete('cascade');

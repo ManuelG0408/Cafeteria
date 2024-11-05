@@ -9,14 +9,14 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->id('id_cliente'); // ID del cliente
-            $table->unsignedBigInteger('id_usuario'); // ID del usuario asociado
-            $table->unsignedBigInteger('id_tipo_cliente'); // ID del tipo de cliente
-            $table->decimal('saldo', 10, 2); // Saldo del cliente
+            $table->id('id_cliente'); 
+            $table->unsignedBigInteger('id_usuario'); 
+            $table->unsignedBigInteger('id_tipo_cliente'); 
+            $table->decimal('saldo', 10, 2); 
 
-            $table->timestamps(); // Campos para created_at y updated_at
+            $table->timestamps(); 
 
-            // Claves foráneas
+            
             $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_tipo_cliente')->references('id_tipo_cliente')->on('tipos_clientes')->onDelete('cascade');
         });
